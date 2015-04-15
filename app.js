@@ -10,6 +10,7 @@ var index = require('./routes/index');
 var dashboard = require('./routes/dashboard');
 var logout = require('./routes/logout');
 var heatmap = require('./routes/heatmap');
+var publications = require('./routes/publications');
 var app = express();
 
 // view engine setup
@@ -37,6 +38,7 @@ app.use('/', index);
 app.use('/dashboard', dashboard);
 app.use('/logout', logout);
 app.use('/heatmap', heatmap);
+app.use('/publications', publications);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
