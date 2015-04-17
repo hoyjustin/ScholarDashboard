@@ -1,6 +1,6 @@
 Data Visulaization Webapp
 ===============
-The Scout web application is utilized to analyze social media data through visualizations.
+This web app is utilized to visualize academic journals and social media data.
 
 Required Modules
 -----------------------

@@ -1,676 +1,269 @@
 0 info it worked if it ends with ok
-1 verbose cli [ 'node', '/usr/local/bin/npm', 'update' ]
-2 info using npm@1.4.28
-3 info using node@v0.10.33
-4 verbose request where is /debug
-5 verbose request registry https://registry.npmjs.org/
-6 verbose request id fb618a54ba696752
-7 verbose url raw /debug
-8 verbose url resolving [ 'https://registry.npmjs.org/', './debug' ]
-9 verbose url resolved https://registry.npmjs.org/debug
-10 verbose request where is https://registry.npmjs.org/debug
-11 info trying registry request attempt 1 at 01:29:17
-12 verbose etag "8KKRJDMZ7BRI1EVAZ0Z3FY39H"
-13 http GET https://registry.npmjs.org/debug
-14 verbose request where is /cookie-parser
-15 verbose request registry https://registry.npmjs.org/
-16 verbose url raw /cookie-parser
-17 verbose url resolving [ 'https://registry.npmjs.org/', './cookie-parser' ]
-18 verbose url resolved https://registry.npmjs.org/cookie-parser
-19 verbose request where is https://registry.npmjs.org/cookie-parser
-20 info trying registry request attempt 1 at 01:29:17
-21 verbose etag "AJ6WN0LMLSQVLTPBI8W0N16EA"
-22 http GET https://registry.npmjs.org/cookie-parser
-23 verbose request where is /body-parser
-24 verbose request registry https://registry.npmjs.org/
-25 verbose url raw /body-parser
-26 verbose url resolving [ 'https://registry.npmjs.org/', './body-parser' ]
-27 verbose url resolved https://registry.npmjs.org/body-parser
-28 verbose request where is https://registry.npmjs.org/body-parser
-29 info trying registry request attempt 1 at 01:29:17
-30 verbose etag "70USRUTSBFDCV9YEWWH2YFTMB"
-31 http GET https://registry.npmjs.org/body-parser
-32 verbose request where is /ejs
-33 verbose request registry https://registry.npmjs.org/
-34 verbose url raw /ejs
-35 verbose url resolving [ 'https://registry.npmjs.org/', './ejs' ]
-36 verbose url resolved https://registry.npmjs.org/ejs
-37 verbose request where is https://registry.npmjs.org/ejs
-38 info trying registry request attempt 1 at 01:29:17
-39 verbose etag "9J44KMBNSXHSYYPAK3PSDUQZA"
-40 http GET https://registry.npmjs.org/ejs
-41 verbose request where is /moment
-42 verbose request registry https://registry.npmjs.org/
-43 verbose url raw /moment
-44 verbose url resolving [ 'https://registry.npmjs.org/', './moment' ]
-45 verbose url resolved https://registry.npmjs.org/moment
-46 verbose request where is https://registry.npmjs.org/moment
-47 info trying registry request attempt 1 at 01:29:17
-48 verbose etag "H1DLQQHNCZ40LHG3GRAMV0YP"
-49 http GET https://registry.npmjs.org/moment
-50 verbose request where is /parse
-51 verbose request registry https://registry.npmjs.org/
-52 verbose url raw /parse
-53 verbose url resolving [ 'https://registry.npmjs.org/', './parse' ]
-54 verbose url resolved https://registry.npmjs.org/parse
-55 verbose request where is https://registry.npmjs.org/parse
-56 info trying registry request attempt 1 at 01:29:17
-57 verbose etag "6VAP9ELAHAT1UT2719Q91XR09"
-58 http GET https://registry.npmjs.org/parse
-59 verbose request where is /express
-60 verbose request registry https://registry.npmjs.org/
-61 verbose url raw /express
-62 verbose url resolving [ 'https://registry.npmjs.org/', './express' ]
-63 verbose url resolved https://registry.npmjs.org/express
-64 verbose request where is https://registry.npmjs.org/express
-65 info trying registry request attempt 1 at 01:29:17
-66 verbose etag "CA6FCGP0P1DA3K5E0QJW72MYV"
-67 http GET https://registry.npmjs.org/express
-68 verbose request where is /morgan
-69 verbose request registry https://registry.npmjs.org/
-70 verbose url raw /morgan
-71 verbose url resolving [ 'https://registry.npmjs.org/', './morgan' ]
-72 verbose url resolved https://registry.npmjs.org/morgan
-73 verbose request where is https://registry.npmjs.org/morgan
-74 info trying registry request attempt 1 at 01:29:17
-75 verbose etag "C8VJ7JUCLHG5IINSV6QZLK3OA"
-76 http GET https://registry.npmjs.org/morgan
-77 verbose request where is /serve-favicon
-78 verbose request registry https://registry.npmjs.org/
-79 verbose url raw /serve-favicon
-80 verbose url resolving [ 'https://registry.npmjs.org/', './serve-favicon' ]
-81 verbose url resolved https://registry.npmjs.org/serve-favicon
-82 verbose request where is https://registry.npmjs.org/serve-favicon
-83 info trying registry request attempt 1 at 01:29:17
-84 verbose etag "E5BSLOF3LLVN5Z1U3UXYTQLI9"
-85 http GET https://registry.npmjs.org/serve-favicon
-86 verbose request where is /selenium-webdriver
-87 verbose request registry https://registry.npmjs.org/
-88 verbose url raw /selenium-webdriver
-89 verbose url resolving [ 'https://registry.npmjs.org/', './selenium-webdriver' ]
-90 verbose url resolved https://registry.npmjs.org/selenium-webdriver
-91 verbose request where is https://registry.npmjs.org/selenium-webdriver
-92 info trying registry request attempt 1 at 01:29:17
-93 verbose etag "6UKQQXHZWAFFWEGAMHVI56PN6"
-94 http GET https://registry.npmjs.org/selenium-webdriver
-95 verbose request where is /mocha
-96 verbose request registry https://registry.npmjs.org/
-97 verbose url raw /mocha
-98 verbose url resolving [ 'https://registry.npmjs.org/', './mocha' ]
-99 verbose url resolved https://registry.npmjs.org/mocha
-100 verbose request where is https://registry.npmjs.org/mocha
-101 info trying registry request attempt 1 at 01:29:17
-102 verbose etag "8BPH9NK0DCD4T2FQ5H3FKN4GZ"
-103 http GET https://registry.npmjs.org/mocha
-104 http 304 https://registry.npmjs.org/moment
-105 silly registry.get cb [ 304,
-105 silly registry.get   { date: 'Wed, 15 Apr 2015 07:29:18 GMT',
-105 silly registry.get     server: 'Apache',
-105 silly registry.get     via: '1.1 varnish',
-105 silly registry.get     'last-modified': 'Wed, 15 Apr 2015 07:29:18 GMT',
-105 silly registry.get     'cache-control': 'max-age=60',
-105 silly registry.get     etag: '"H1DLQQHNCZ40LHG3GRAMV0YP"',
-105 silly registry.get     age: '16',
-105 silly registry.get     'x-served-by': 'cache-ord1730-ORD',
-105 silly registry.get     'x-cache': 'HIT',
-105 silly registry.get     'x-cache-hits': '1',
-105 silly registry.get     'x-timer': 'S1429082958.249775,VS0,VE0',
-105 silly registry.get     vary: 'Accept',
-105 silly registry.get     'content-length': '0',
-105 silly registry.get     'keep-alive': 'timeout=10, max=50',
-105 silly registry.get     connection: 'Keep-Alive' } ]
-106 verbose etag https://registry.npmjs.org/moment from cache
-107 http 304 https://registry.npmjs.org/cookie-parser
-108 silly registry.get cb [ 304,
-108 silly registry.get   { date: 'Wed, 15 Apr 2015 07:29:18 GMT',
-108 silly registry.get     server: 'Apache',
-108 silly registry.get     via: '1.1 varnish',
-108 silly registry.get     'last-modified': 'Wed, 15 Apr 2015 07:29:18 GMT',
-108 silly registry.get     'cache-control': 'max-age=60',
-108 silly registry.get     etag: '"AJ6WN0LMLSQVLTPBI8W0N16EA"',
-108 silly registry.get     age: '52',
-108 silly registry.get     'x-served-by': 'cache-ord1725-ORD',
-108 silly registry.get     'x-cache': 'HIT',
-108 silly registry.get     'x-cache-hits': '1',
-108 silly registry.get     'x-timer': 'S1429082958.261626,VS0,VE0',
-108 silly registry.get     vary: 'Accept',
-108 silly registry.get     'content-length': '0',
-108 silly registry.get     'keep-alive': 'timeout=10, max=50',
-108 silly registry.get     connection: 'Keep-Alive' } ]
-109 verbose etag https://registry.npmjs.org/cookie-parser from cache
-110 http 200 https://registry.npmjs.org/debug
-111 silly registry.get cb [ 200,
-111 silly registry.get   { date: 'Wed, 15 Apr 2015 07:29:18 GMT',
-111 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
-111 silly registry.get     etag: '"18R75CD9J8UCWY5WMG3XR7ETB"',
-111 silly registry.get     'content-type': 'application/json',
-111 silly registry.get     'cache-control': 'max-age=60',
-111 silly registry.get     'content-length': '32891',
-111 silly registry.get     'accept-ranges': 'bytes',
-111 silly registry.get     via: '1.1 varnish',
-111 silly registry.get     age: '55',
-111 silly registry.get     'x-served-by': 'cache-ord1727-ORD',
-111 silly registry.get     'x-cache': 'HIT',
-111 silly registry.get     'x-cache-hits': '1',
-111 silly registry.get     'x-timer': 'S1429082958.246369,VS0,VE0',
-111 silly registry.get     vary: 'Accept',
-111 silly registry.get     'keep-alive': 'timeout=10, max=50',
-111 silly registry.get     connection: 'Keep-Alive' } ]
-112 http 304 https://registry.npmjs.org/morgan
-113 silly registry.get cb [ 304,
-113 silly registry.get   { date: 'Wed, 15 Apr 2015 07:29:18 GMT',
-113 silly registry.get     server: 'Apache',
-113 silly registry.get     via: '1.1 varnish',
-113 silly registry.get     'last-modified': 'Wed, 15 Apr 2015 07:29:18 GMT',
-113 silly registry.get     'cache-control': 'max-age=60',
-113 silly registry.get     etag: '"C8VJ7JUCLHG5IINSV6QZLK3OA"',
-113 silly registry.get     age: '53',
-113 silly registry.get     'x-served-by': 'cache-ord1727-ORD',
-113 silly registry.get     'x-cache': 'HIT',
-113 silly registry.get     'x-cache-hits': '1',
-113 silly registry.get     'x-timer': 'S1429082958.453394,VS0,VE0',
-113 silly registry.get     vary: 'Accept',
-113 silly registry.get     'content-length': '0',
-113 silly registry.get     'keep-alive': 'timeout=10, max=49',
-113 silly registry.get     connection: 'Keep-Alive' } ]
-114 verbose etag https://registry.npmjs.org/morgan from cache
-115 http 304 https://registry.npmjs.org/serve-favicon
-116 silly registry.get cb [ 304,
-116 silly registry.get   { date: 'Wed, 15 Apr 2015 07:29:18 GMT',
-116 silly registry.get     server: 'Apache',
-116 silly registry.get     via: '1.1 varnish',
-116 silly registry.get     'last-modified': 'Wed, 15 Apr 2015 07:29:18 GMT',
-116 silly registry.get     'cache-control': 'max-age=60',
-116 silly registry.get     etag: '"E5BSLOF3LLVN5Z1U3UXYTQLI9"',
-116 silly registry.get     age: '0',
-116 silly registry.get     'x-served-by': 'cache-ord1727-ORD',
-116 silly registry.get     'x-cache': 'HIT',
-116 silly registry.get     'x-cache-hits': '1',
-116 silly registry.get     'x-timer': 'S1429082958.528482,VS0,VE64',
-116 silly registry.get     vary: 'Accept',
-116 silly registry.get     'content-length': '0',
-116 silly registry.get     'keep-alive': 'timeout=10, max=48',
-116 silly registry.get     connection: 'Keep-Alive' } ]
-117 verbose etag https://registry.npmjs.org/serve-favicon from cache
-118 verbose request where is /etag
-119 verbose request registry https://registry.npmjs.org/
-120 verbose url raw /etag
-121 verbose url resolving [ 'https://registry.npmjs.org/', './etag' ]
-122 verbose url resolved https://registry.npmjs.org/etag
-123 verbose request where is https://registry.npmjs.org/etag
-124 info trying registry request attempt 1 at 01:29:18
-125 verbose etag "7W38Y0FULW5G31WX5KWHUZVCM"
-126 http GET https://registry.npmjs.org/etag
-127 verbose request where is /ms
-128 verbose request registry https://registry.npmjs.org/
-129 verbose url raw /ms
-130 verbose url resolving [ 'https://registry.npmjs.org/', './ms' ]
-131 verbose url resolved https://registry.npmjs.org/ms
-132 verbose request where is https://registry.npmjs.org/ms
-133 info trying registry request attempt 1 at 01:29:18
-134 verbose etag "2CV4V1PTIW41DQWP8ODMMT2SO"
-135 http GET https://registry.npmjs.org/ms
-136 verbose request where is /parseurl
-137 verbose request registry https://registry.npmjs.org/
-138 verbose url raw /parseurl
-139 verbose url resolving [ 'https://registry.npmjs.org/', './parseurl' ]
-140 verbose url resolved https://registry.npmjs.org/parseurl
-141 verbose request where is https://registry.npmjs.org/parseurl
-142 info trying registry request attempt 1 at 01:29:18
-143 verbose etag "4ERHK127ARUBN29AIXZ2S012E"
-144 http GET https://registry.npmjs.org/parseurl
-145 verbose request where is /fresh
-146 verbose request registry https://registry.npmjs.org/
-147 verbose url raw /fresh
-148 verbose url resolving [ 'https://registry.npmjs.org/', './fresh' ]
-149 verbose url resolved https://registry.npmjs.org/fresh
-150 verbose request where is https://registry.npmjs.org/fresh
-151 info trying registry request attempt 1 at 01:29:18
-152 verbose etag "7K1A0D553XTFNNA6FXWM012NY"
-153 http GET https://registry.npmjs.org/fresh
-154 http 200 https://registry.npmjs.org/body-parser
-155 silly registry.get cb [ 200,
-155 silly registry.get   { date: 'Wed, 15 Apr 2015 07:29:18 GMT',
-155 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
-155 silly registry.get     etag: '"BBRE2ZOPDFEPO29EVVAPMSA4K"',
-155 silly registry.get     'content-type': 'application/json',
-155 silly registry.get     'cache-control': 'max-age=60',
-155 silly registry.get     'content-length': '90772',
-155 silly registry.get     'accept-ranges': 'bytes',
-155 silly registry.get     via: '1.1 varnish',
-155 silly registry.get     age: '10',
-155 silly registry.get     'x-served-by': 'cache-ord1727-ORD',
-155 silly registry.get     'x-cache': 'HIT',
-155 silly registry.get     'x-cache-hits': '1',
-155 silly registry.get     'x-timer': 'S1429082958.273340,VS0,VE0',
-155 silly registry.get     vary: 'Accept',
-155 silly registry.get     'keep-alive': 'timeout=10, max=50',
-155 silly registry.get     connection: 'Keep-Alive' } ]
-156 http 200 https://registry.npmjs.org/ejs
-157 silly registry.get cb [ 200,
-157 silly registry.get   { date: 'Wed, 15 Apr 2015 07:29:18 GMT',
-157 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
-157 silly registry.get     etag: '"ERW73DW6HOQG8WBKLTP843EX8"',
-157 silly registry.get     'content-type': 'application/json',
-157 silly registry.get     'cache-control': 'max-age=60',
-157 silly registry.get     'content-length': '45070',
-157 silly registry.get     'accept-ranges': 'bytes',
-157 silly registry.get     via: '1.1 varnish',
-157 silly registry.get     age: '0',
-157 silly registry.get     'x-served-by': 'cache-ord1721-ORD',
-157 silly registry.get     'x-cache': 'HIT',
-157 silly registry.get     'x-cache-hits': '1',
-157 silly registry.get     'x-timer': 'S1429082958.225098,VS0,VE272',
-157 silly registry.get     vary: 'Accept',
-157 silly registry.get     'keep-alive': 'timeout=10, max=50',
-157 silly registry.get     connection: 'Keep-Alive' } ]
-158 http 304 https://registry.npmjs.org/parse
-159 silly registry.get cb [ 304,
-159 silly registry.get   { date: 'Wed, 15 Apr 2015 07:29:18 GMT',
-159 silly registry.get     server: 'Apache',
-159 silly registry.get     via: '1.1 varnish',
-159 silly registry.get     'last-modified': 'Wed, 15 Apr 2015 07:29:18 GMT',
-159 silly registry.get     'cache-control': 'max-age=60',
-159 silly registry.get     etag: '"6VAP9ELAHAT1UT2719Q91XR09"',
-159 silly registry.get     age: '0',
-159 silly registry.get     'x-served-by': 'cache-ord1730-ORD',
-159 silly registry.get     'x-cache': 'MISS',
-159 silly registry.get     'x-cache-hits': '0',
-159 silly registry.get     'x-timer': 'S1429082958.356770,VS0,VE337',
-159 silly registry.get     vary: 'Accept',
-159 silly registry.get     'content-length': '0',
-159 silly registry.get     'keep-alive': 'timeout=10, max=49',
-159 silly registry.get     connection: 'Keep-Alive' } ]
-160 verbose etag https://registry.npmjs.org/parse from cache
-161 http 304 https://registry.npmjs.org/selenium-webdriver
-162 silly registry.get cb [ 304,
-162 silly registry.get   { date: 'Wed, 15 Apr 2015 07:29:18 GMT',
-162 silly registry.get     server: 'Apache',
-162 silly registry.get     via: '1.1 varnish',
-162 silly registry.get     'last-modified': 'Wed, 15 Apr 2015 07:29:18 GMT',
-162 silly registry.get     'cache-control': 'max-age=60',
-162 silly registry.get     etag: '"6UKQQXHZWAFFWEGAMHVI56PN6"',
-162 silly registry.get     age: '0',
-162 silly registry.get     'x-served-by': 'cache-ord1727-ORD',
-162 silly registry.get     'x-cache': 'HIT',
-162 silly registry.get     'x-cache-hits': '1',
-162 silly registry.get     'x-timer': 'S1429082958.686061,VS0,VE48',
-162 silly registry.get     vary: 'Accept',
-162 silly registry.get     'content-length': '0',
-162 silly registry.get     'keep-alive': 'timeout=10, max=47',
-162 silly registry.get     connection: 'Keep-Alive' } ]
-163 verbose etag https://registry.npmjs.org/selenium-webdriver from cache
-164 verbose cache add [ 'selenium-webdriver', '~1.4.28' ]
-165 verbose cache add name="selenium-webdriver" spec="~1.4.28" args=["selenium-webdriver","~1.4.28"]
-166 verbose parsed url { protocol: null,
-166 verbose parsed url   slashes: null,
-166 verbose parsed url   auth: null,
-166 verbose parsed url   host: null,
-166 verbose parsed url   port: null,
-166 verbose parsed url   hostname: null,
-166 verbose parsed url   hash: null,
-166 verbose parsed url   search: null,
-166 verbose parsed url   query: null,
-166 verbose parsed url   pathname: '~1.4.28',
-166 verbose parsed url   path: '~1.4.28',
-166 verbose parsed url   href: '~1.4.28' }
-167 verbose addNamed [ 'selenium-webdriver', '~1.4.28' ]
-168 verbose addNamed [ null, '>=1.4.28-0 <1.5.0-0' ]
-169 silly lockFile 6d160831-selenium-webdriver-1-4-28 selenium-webdriver@~1.4.28
-170 verbose lock selenium-webdriver@~1.4.28 /Users/nhu/.npm/6d160831-selenium-webdriver-1-4-28.lock
-171 silly addNameRange { name: 'selenium-webdriver',
-171 silly addNameRange   range: '>=1.4.28-0 <1.5.0-0',
-171 silly addNameRange   hasData: false }
-172 verbose registry.get https://registry.npmjs.org/selenium-webdriver not expired, no request
-173 silly addNameRange number 2 { name: 'selenium-webdriver',
-173 silly addNameRange   range: '>=1.4.28-0 <1.5.0-0',
-173 silly addNameRange   hasData: true }
-174 silly addNameRange versions [ 'selenium-webdriver',
-174 silly addNameRange   [ '2.29.0',
-174 silly addNameRange     '2.29.1',
-174 silly addNameRange     '2.30.0',
-174 silly addNameRange     '2.31.0',
-174 silly addNameRange     '2.32.0',
-174 silly addNameRange     '2.32.1',
-174 silly addNameRange     '2.33.0',
-174 silly addNameRange     '2.34.0',
-174 silly addNameRange     '2.34.1',
-174 silly addNameRange     '2.35.0',
-174 silly addNameRange     '2.35.1',
-174 silly addNameRange     '2.35.2',
-174 silly addNameRange     '2.37.0',
-174 silly addNameRange     '2.38.0',
-174 silly addNameRange     '2.38.1',
-174 silly addNameRange     '2.39.0',
-174 silly addNameRange     '2.40.0',
-174 silly addNameRange     '2.41.0',
-174 silly addNameRange     '2.42.0',
-174 silly addNameRange     '2.42.1',
-174 silly addNameRange     '2.43.1',
-174 silly addNameRange     '2.43.2',
-174 silly addNameRange     '2.43.3',
-174 silly addNameRange     '2.43.4',
-174 silly addNameRange     '2.43.5',
-174 silly addNameRange     '2.44.0',
-174 silly addNameRange     '2.45.0',
-174 silly addNameRange     '2.45.1' ] ]
-175 silly lockFile 6d160831-selenium-webdriver-1-4-28 selenium-webdriver@~1.4.28
-176 silly lockFile 6d160831-selenium-webdriver-1-4-28 selenium-webdriver@~1.4.28
-177 http 304 https://registry.npmjs.org/ms
-178 silly registry.get cb [ 304,
-178 silly registry.get   { date: 'Wed, 15 Apr 2015 07:29:18 GMT',
-178 silly registry.get     server: 'Apache',
-178 silly registry.get     via: '1.1 varnish',
-178 silly registry.get     'last-modified': 'Wed, 15 Apr 2015 07:29:18 GMT',
-178 silly registry.get     'cache-control': 'max-age=60',
-178 silly registry.get     etag: '"2CV4V1PTIW41DQWP8ODMMT2SO"',
-178 silly registry.get     age: '54',
-178 silly registry.get     'x-served-by': 'cache-ord1730-ORD',
-178 silly registry.get     'x-cache': 'HIT',
-178 silly registry.get     'x-cache-hits': '1',
-178 silly registry.get     'x-timer': 'S1429082958.793927,VS0,VE0',
-178 silly registry.get     vary: 'Accept',
-178 silly registry.get     'content-length': '0',
-178 silly registry.get     'keep-alive': 'timeout=10, max=48',
-178 silly registry.get     connection: 'Keep-Alive' } ]
-179 verbose etag https://registry.npmjs.org/ms from cache
-180 http 304 https://registry.npmjs.org/etag
-181 silly registry.get cb [ 304,
-181 silly registry.get   { date: 'Wed, 15 Apr 2015 07:29:18 GMT',
-181 silly registry.get     server: 'Apache',
-181 silly registry.get     via: '1.1 varnish',
-181 silly registry.get     'last-modified': 'Wed, 15 Apr 2015 07:29:18 GMT',
-181 silly registry.get     'cache-control': 'max-age=60',
-181 silly registry.get     etag: '"7W38Y0FULW5G31WX5KWHUZVCM"',
-181 silly registry.get     age: '0',
-181 silly registry.get     'x-served-by': 'cache-ord1721-ORD',
-181 silly registry.get     'x-cache': 'HIT',
-181 silly registry.get     'x-cache-hits': '1',
-181 silly registry.get     'x-timer': 'S1429082958.783156,VS0,VE38',
-181 silly registry.get     vary: 'Accept',
-181 silly registry.get     'content-length': '0',
-181 silly registry.get     'keep-alive': 'timeout=10, max=49',
-181 silly registry.get     connection: 'Keep-Alive' } ]
-182 verbose etag https://registry.npmjs.org/etag from cache
-183 verbose request where is /crc
-184 verbose request registry https://registry.npmjs.org/
-185 verbose url raw /crc
-186 verbose url resolving [ 'https://registry.npmjs.org/', './crc' ]
-187 verbose url resolved https://registry.npmjs.org/crc
-188 verbose request where is https://registry.npmjs.org/crc
-189 info trying registry request attempt 1 at 01:29:18
-190 verbose etag "9KLHMWPTPD5YTV8S7DC5G1ODQ"
-191 http GET https://registry.npmjs.org/crc
-192 http 304 https://registry.npmjs.org/parseurl
-193 silly registry.get cb [ 304,
-193 silly registry.get   { date: 'Wed, 15 Apr 2015 07:29:18 GMT',
-193 silly registry.get     server: 'Apache',
-193 silly registry.get     via: '1.1 varnish',
-193 silly registry.get     'last-modified': 'Wed, 15 Apr 2015 07:29:18 GMT',
-193 silly registry.get     'cache-control': 'max-age=60',
-193 silly registry.get     etag: '"4ERHK127ARUBN29AIXZ2S012E"',
-193 silly registry.get     age: '3',
-193 silly registry.get     'x-served-by': 'cache-ord1727-ORD',
-193 silly registry.get     'x-cache': 'HIT',
-193 silly registry.get     'x-cache-hits': '1',
-193 silly registry.get     'x-timer': 'S1429082958.835045,VS0,VE0',
-193 silly registry.get     vary: 'Accept',
-193 silly registry.get     'content-length': '0',
-193 silly registry.get     'keep-alive': 'timeout=10, max=46',
-193 silly registry.get     connection: 'Keep-Alive' } ]
-194 verbose etag https://registry.npmjs.org/parseurl from cache
-195 http 304 https://registry.npmjs.org/fresh
-196 silly registry.get cb [ 304,
-196 silly registry.get   { date: 'Wed, 15 Apr 2015 07:29:18 GMT',
-196 silly registry.get     server: 'Apache',
-196 silly registry.get     via: '1.1 varnish',
-196 silly registry.get     'last-modified': 'Wed, 15 Apr 2015 07:29:18 GMT',
-196 silly registry.get     'cache-control': 'max-age=60',
-196 silly registry.get     etag: '"7K1A0D553XTFNNA6FXWM012NY"',
-196 silly registry.get     age: '29',
-196 silly registry.get     'x-served-by': 'cache-ord1730-ORD',
-196 silly registry.get     'x-cache': 'HIT',
-196 silly registry.get     'x-cache-hits': '1',
-196 silly registry.get     'x-timer': 'S1429082958.906741,VS0,VE0',
-196 silly registry.get     vary: 'Accept',
-196 silly registry.get     'content-length': '0',
-196 silly registry.get     'keep-alive': 'timeout=10, max=47',
-196 silly registry.get     connection: 'Keep-Alive' } ]
-197 verbose etag https://registry.npmjs.org/fresh from cache
-198 http 200 https://registry.npmjs.org/mocha
-199 silly registry.get cb [ 200,
-199 silly registry.get   { date: 'Wed, 15 Apr 2015 07:29:18 GMT',
-199 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
-199 silly registry.get     etag: '"D4EOVB9U2JS3Z6ML4GEOZRWJV"',
-199 silly registry.get     'content-type': 'application/json',
-199 silly registry.get     'cache-control': 'max-age=60',
-199 silly registry.get     'content-length': '110368',
-199 silly registry.get     'accept-ranges': 'bytes',
-199 silly registry.get     via: '1.1 varnish',
-199 silly registry.get     age: '0',
-199 silly registry.get     'x-served-by': 'cache-ord1727-ORD',
-199 silly registry.get     'x-cache': 'HIT',
-199 silly registry.get     'x-cache-hits': '1',
-199 silly registry.get     'x-timer': 'S1429082958.710575,VS0,VE40',
-199 silly registry.get     vary: 'Accept',
-199 silly registry.get     'keep-alive': 'timeout=10, max=49',
-199 silly registry.get     connection: 'Keep-Alive' } ]
-200 verbose cache add [ 'mocha', '~0.10.33' ]
-201 verbose cache add name="mocha" spec="~0.10.33" args=["mocha","~0.10.33"]
-202 verbose parsed url { protocol: null,
-202 verbose parsed url   slashes: null,
-202 verbose parsed url   auth: null,
-202 verbose parsed url   host: null,
-202 verbose parsed url   port: null,
-202 verbose parsed url   hostname: null,
-202 verbose parsed url   hash: null,
-202 verbose parsed url   search: null,
-202 verbose parsed url   query: null,
-202 verbose parsed url   pathname: '~0.10.33',
-202 verbose parsed url   path: '~0.10.33',
-202 verbose parsed url   href: '~0.10.33' }
-203 verbose addNamed [ 'mocha', '~0.10.33' ]
-204 verbose addNamed [ null, '>=0.10.33-0 <0.11.0-0' ]
-205 silly lockFile bc2e6dc2-mocha-0-10-33 mocha@~0.10.33
-206 verbose lock mocha@~0.10.33 /Users/nhu/.npm/bc2e6dc2-mocha-0-10-33.lock
-207 silly addNameRange { name: 'mocha', range: '>=0.10.33-0 <0.11.0-0', hasData: false }
-208 verbose registry.get https://registry.npmjs.org/mocha not expired, no request
-209 silly addNameRange number 2 { name: 'mocha', range: '>=0.10.33-0 <0.11.0-0', hasData: true }
-210 silly addNameRange versions [ 'mocha',
-210 silly addNameRange   [ '0.0.1-alpha1',
-210 silly addNameRange     '0.0.1-alpha2',
-210 silly addNameRange     '0.0.1-alpha3',
-210 silly addNameRange     '0.0.1-alpha4',
-210 silly addNameRange     '0.0.1-alpha5',
-210 silly addNameRange     '0.0.1-alpha6',
-210 silly addNameRange     '0.0.1',
-210 silly addNameRange     '0.0.2',
-210 silly addNameRange     '0.0.3',
-210 silly addNameRange     '0.0.4',
-210 silly addNameRange     '0.0.5',
-210 silly addNameRange     '0.0.6',
-210 silly addNameRange     '0.0.7',
-210 silly addNameRange     '0.0.8',
-210 silly addNameRange     '0.1.0',
-210 silly addNameRange     '0.2.0',
-210 silly addNameRange     '0.3.0',
-210 silly addNameRange     '0.3.1',
-210 silly addNameRange     '0.3.2',
-210 silly addNameRange     '0.3.3',
-210 silly addNameRange     '0.3.4',
-210 silly addNameRange     '0.3.6',
-210 silly addNameRange     '0.4.0',
-210 silly addNameRange     '0.5.0',
-210 silly addNameRange     '0.6.0',
-210 silly addNameRange     '0.7.0',
-210 silly addNameRange     '0.7.1',
-210 silly addNameRange     '0.8.0',
-210 silly addNameRange     '0.8.1',
-210 silly addNameRange     '0.9.0',
-210 silly addNameRange     '0.10.0',
-210 silly addNameRange     '0.10.1',
-210 silly addNameRange     '0.10.2',
-210 silly addNameRange     '0.11.0',
-210 silly addNameRange     '0.12.0',
-210 silly addNameRange     '0.12.1',
-210 silly addNameRange     '0.13.0',
-210 silly addNameRange     '0.14.0',
-210 silly addNameRange     '0.14.1',
-210 silly addNameRange     '1.0.0',
-210 silly addNameRange     '1.0.1',
-210 silly addNameRange     '1.0.2',
-210 silly addNameRange     '1.0.3',
-210 silly addNameRange     '1.1.0',
-210 silly addNameRange     '1.2.0',
-210 silly addNameRange     '1.2.1',
-210 silly addNameRange     '1.2.2',
-210 silly addNameRange     '1.3.0',
-210 silly addNameRange     '1.3.1',
-210 silly addNameRange     '1.3.2',
-210 silly addNameRange     '1.4.0',
-210 silly addNameRange     '1.4.1',
-210 silly addNameRange     '1.4.2',
-210 silly addNameRange     '1.4.3',
-210 silly addNameRange     '1.5.0',
-210 silly addNameRange     '1.6.0',
-210 silly addNameRange     '1.7.0',
-210 silly addNameRange     '1.7.1',
-210 silly addNameRange     '1.7.2',
-210 silly addNameRange     '1.7.3',
-210 silly addNameRange     '1.7.4',
-210 silly addNameRange     '1.8.0',
-210 silly addNameRange     '1.8.1',
-210 silly addNameRange     '1.8.2',
-210 silly addNameRange     '1.9.0',
-210 silly addNameRange     '1.10.0',
-210 silly addNameRange     '1.11.0',
-210 silly addNameRange     '1.12.0',
-210 silly addNameRange     '1.12.1',
-210 silly addNameRange     '1.13.0',
-210 silly addNameRange     '1.14.0',
-210 silly addNameRange     '1.15.0',
-210 silly addNameRange     '1.15.1',
-210 silly addNameRange     '1.16.0',
-210 silly addNameRange     '1.16.1',
-210 silly addNameRange     '1.16.2',
-210 silly addNameRange     '1.17.0',
-210 silly addNameRange     '1.17.1',
-210 silly addNameRange     '1.18.0',
-210 silly addNameRange     '1.18.1',
-210 silly addNameRange     '1.18.2',
-210 silly addNameRange     '1.19.0',
-210 silly addNameRange     '1.20.0',
-210 silly addNameRange     '1.20.1',
-210 silly addNameRange     '1.21.0',
-210 silly addNameRange     '1.21.1',
-210 silly addNameRange     '1.21.2',
-210 silly addNameRange     '1.21.3',
-210 silly addNameRange     '1.21.4',
-210 silly addNameRange     '1.21.5',
-210 silly addNameRange     '2.0.0',
-210 silly addNameRange     '2.0.1',
-210 silly addNameRange     '2.1.0',
-210 silly addNameRange     '2.2.0',
-210 silly addNameRange     '2.2.1',
-210 silly addNameRange     '2.2.3',
-210 silly addNameRange     '2.2.4' ] ]
-211 silly lockFile bc2e6dc2-mocha-0-10-33 mocha@~0.10.33
-212 silly lockFile bc2e6dc2-mocha-0-10-33 mocha@~0.10.33
-213 http 200 https://registry.npmjs.org/express
-214 silly registry.get cb [ 200,
-214 silly registry.get   { date: 'Wed, 15 Apr 2015 07:29:18 GMT',
-214 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
-214 silly registry.get     etag: '"DR4KLIZLY4KP8SYQUT3KMWKEE"',
-214 silly registry.get     'content-type': 'application/json',
-214 silly registry.get     'cache-control': 'max-age=60',
-214 silly registry.get     'content-length': '492285',
-214 silly registry.get     'accept-ranges': 'bytes',
-214 silly registry.get     via: '1.1 varnish',
-214 silly registry.get     age: '29',
-214 silly registry.get     'x-served-by': 'cache-ord1725-ORD',
-214 silly registry.get     'x-cache': 'HIT',
-214 silly registry.get     'x-cache-hits': '1',
-214 silly registry.get     'x-timer': 'S1429082958.360875,VS0,VE2',
-214 silly registry.get     vary: 'Accept',
-214 silly registry.get     'keep-alive': 'timeout=10, max=49',
-214 silly registry.get     connection: 'Keep-Alive' } ]
-215 http 304 https://registry.npmjs.org/crc
-216 silly registry.get cb [ 304,
-216 silly registry.get   { date: 'Wed, 15 Apr 2015 07:29:19 GMT',
-216 silly registry.get     server: 'Apache',
-216 silly registry.get     via: '1.1 varnish',
-216 silly registry.get     'last-modified': 'Wed, 15 Apr 2015 07:28:54 GMT',
-216 silly registry.get     'cache-control': 'max-age=60',
-216 silly registry.get     etag: '"9KLHMWPTPD5YTV8S7DC5G1ODQ"',
-216 silly registry.get     age: '53',
-216 silly registry.get     'x-served-by': 'cache-ord1734-ORD',
-216 silly registry.get     'x-cache': 'HIT',
-216 silly registry.get     'x-cache-hits': '2',
-216 silly registry.get     'x-timer': 'S1429082959.294671,VS0,VE0',
-216 silly registry.get     vary: 'Accept',
-216 silly registry.get     'content-length': '0',
-216 silly registry.get     'keep-alive': 'timeout=10, max=50',
-216 silly registry.get     connection: 'Keep-Alive' } ]
-217 verbose etag https://registry.npmjs.org/crc from cache
-218 info outdated updating [ [ '/Users/nhu/Desktop/School/402-visualAPI/402dashboard',
-218 info outdated     'moment',
-218 info outdated     undefined,
-218 info outdated     '2.10.2',
-218 info outdated     '2.10.2',
-218 info outdated     '^2.9.0' ],
-218 info outdated   [ '/Users/nhu/Desktop/School/402-visualAPI/402dashboard',
-218 info outdated     'cookie-parser',
-218 info outdated     '1.3.3',
-218 info outdated     '1.3.4',
-218 info outdated     '1.3.4',
-218 info outdated     '~1.3.3' ],
-218 info outdated   [ '/Users/nhu/Desktop/School/402-visualAPI/402dashboard',
-218 info outdated     'debug',
-218 info outdated     '2.1.1',
-218 info outdated     '2.1.3',
-218 info outdated     '2.1.3',
-218 info outdated     '~2.1.1' ],
-218 info outdated   [ '/Users/nhu/Desktop/School/402-visualAPI/402dashboard',
-218 info outdated     'morgan',
-218 info outdated     '1.5.1',
-218 info outdated     '1.5.2',
-218 info outdated     '1.5.2',
-218 info outdated     '~1.5.1' ],
-218 info outdated   [ '/Users/nhu/Desktop/School/402-visualAPI/402dashboard',
-218 info outdated     'body-parser',
-218 info outdated     '1.10.2',
-218 info outdated     '1.10.2',
-218 info outdated     '1.12.2',
-218 info outdated     '~1.10.2' ],
-218 info outdated   [ '/Users/nhu/Desktop/School/402-visualAPI/402dashboard',
-218 info outdated     'parse',
-218 info outdated     undefined,
-218 info outdated     '1.3.5',
-218 info outdated     '1.4.2',
-218 info outdated     '~1.3.4' ],
-218 info outdated   [ '/Users/nhu/Desktop/School/402-visualAPI/402dashboard',
-218 info outdated     'ejs',
-218 info outdated     '2.2.4',
-218 info outdated     '2.2.4',
-218 info outdated     '2.3.1',
-218 info outdated     '~2.2.4' ],
-218 info outdated   [ '/Users/nhu/Desktop/School/402-visualAPI/402dashboard',
-218 info outdated     'express',
-218 info outdated     '4.11.2',
-218 info outdated     '4.11.2',
-218 info outdated     '4.12.3',
-218 info outdated     '~4.11.1' ] ]
-219 error notarget No compatible version found: selenium-webdriver@'>=1.4.28-0 <1.5.0-0'
-219 error notarget Valid install targets:
-219 error notarget ["2.29.0","2.29.1","2.30.0","2.31.0","2.32.0","2.32.1","2.33.0","2.34.0","2.34.1","2.35.0","2.35.1","2.35.2","2.37.0","2.38.0","2.38.1","2.39.0","2.40.0","2.41.0","2.42.0","2.42.1","2.43.1","2.43.2","2.43.3","2.43.4","2.43.5","2.44.0","2.45.0","2.45.1"]
-219 error notarget
-219 error notarget This is most likely not a problem with npm itself.
-219 error notarget In most cases you or one of your dependencies are requesting
-219 error notarget a package version that doesn't exist.
-220 error System Darwin 14.0.0
-221 error command "node" "/usr/local/bin/npm" "update"
-222 error cwd /Users/nhu/Desktop/School/402-visualAPI/402dashboard
-223 error node -v v0.10.33
-224 error npm -v 1.4.28
-225 error code ETARGET
-226 verbose exit [ 1, true ]
+1 verbose cli [ 'G:\\Justins Stuff\\Development\\Nodejs\\\\node.exe',
+1 verbose cli   'G:\\Justins Stuff\\Development\\Nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'request' ]
+2 info using npm@2.5.1
+3 info using node@v0.12.0
+4 verbose node symlink G:\Justins Stuff\Development\Nodejs\\node.exe
+5 silly cache add args [ 'request', null ]
+6 verbose cache add spec request
+7 silly cache add parsed spec { raw: 'request',
+7 silly cache add   scope: null,
+7 silly cache add   name: 'request',
+7 silly cache add   rawSpec: '',
+7 silly cache add   spec: '*',
+7 silly cache add   type: 'range' }
+8 verbose addNamed request@*
+9 silly addNamed semver.valid null
+10 silly addNamed semver.validRange *
+11 silly addNameRange { name: 'request', range: '*', hasData: false }
+12 silly mapToRegistry name request
+13 silly mapToRegistry using default registry
+14 silly mapToRegistry registry https://registry.npmjs.org/
+15 silly mapToRegistry uri https://registry.npmjs.org/request
+16 verbose addNameRange registry:https://registry.npmjs.org/request not in flight; fetching
+17 verbose request uri https://registry.npmjs.org/request
+18 verbose request no auth needed
+19 info attempt registry request try #1 at 12:11:13 AM
+20 verbose request id ebc7758eec13e1ef
+21 http request GET https://registry.npmjs.org/request
+22 http 200 https://registry.npmjs.org/request
+23 silly get cb [ 200,
+23 silly get   { date: 'Fri, 17 Apr 2015 06:11:13 GMT',
+23 silly get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+23 silly get     etag: '"50C8T2ZHMC6XUOFUK63ZV5AR1"',
+23 silly get     'content-type': 'application/json',
+23 silly get     'cache-control': 'max-age=60',
+23 silly get     'content-length': '145780',
+23 silly get     'accept-ranges': 'bytes',
+23 silly get     via: '1.1 varnish',
+23 silly get     age: '54',
+23 silly get     'x-served-by': 'cache-ord1734-ORD',
+23 silly get     'x-cache': 'HIT',
+23 silly get     'x-cache-hits': '1',
+23 silly get     'x-timer': 'S1429251073.083239,VS0,VE0',
+23 silly get     vary: 'Accept',
+23 silly get     'keep-alive': 'timeout=10, max=50',
+23 silly get     connection: 'Keep-Alive' } ]
+24 verbose get saving request to C:\Users\Justinh\AppData\Roaming\npm-cache\registry.npmjs.org\request\.cache.json
+25 verbose getCacheStat cache creation not in flight; initializing
+26 verbose makeCacheDir UID & GID are irrelevant on win32
+27 silly addNameRange number 2 { name: 'request', range: '*', hasData: true }
+28 silly addNameRange versions [ 'request',
+28 silly addNameRange   [ '0.10.0',
+28 silly addNameRange     '0.8.3',
+28 silly addNameRange     '0.9.0',
+28 silly addNameRange     '0.9.1',
+28 silly addNameRange     '0.9.5',
+28 silly addNameRange     '1.0.0',
+28 silly addNameRange     '1.1.0',
+28 silly addNameRange     '1.1.1',
+28 silly addNameRange     '1.2.0',
+28 silly addNameRange     '1.9.0',
+28 silly addNameRange     '1.9.1',
+28 silly addNameRange     '1.9.2',
+28 silly addNameRange     '1.9.3',
+28 silly addNameRange     '1.9.5',
+28 silly addNameRange     '1.9.7',
+28 silly addNameRange     '1.9.8',
+28 silly addNameRange     '1.9.9',
+28 silly addNameRange     '2.0.0',
+28 silly addNameRange     '2.0.1',
+28 silly addNameRange     '2.0.2',
+28 silly addNameRange     '2.0.3',
+28 silly addNameRange     '2.0.4',
+28 silly addNameRange     '2.0.5',
+28 silly addNameRange     '2.1.0',
+28 silly addNameRange     '2.1.1',
+28 silly addNameRange     '2.2.0',
+28 silly addNameRange     '2.2.5',
+28 silly addNameRange     '2.2.6',
+28 silly addNameRange     '2.2.9',
+28 silly addNameRange     '2.9.0',
+28 silly addNameRange     '2.9.1',
+28 silly addNameRange     '2.9.2',
+28 silly addNameRange     '2.9.3',
+28 silly addNameRange     '2.9.100',
+28 silly addNameRange     '2.9.150',
+28 silly addNameRange     '2.9.151',
+28 silly addNameRange     '2.9.152',
+28 silly addNameRange     '2.9.153',
+28 silly addNameRange     '2.9.200',
+28 silly addNameRange     '2.9.201',
+28 silly addNameRange     '2.9.202',
+28 silly addNameRange     '2.9.203',
+28 silly addNameRange     '2.10.0',
+28 silly addNameRange     '2.11.0',
+28 silly addNameRange     '2.11.1',
+28 silly addNameRange     '2.11.2',
+28 silly addNameRange     '2.11.3',
+28 silly addNameRange     '2.11.4',
+28 silly addNameRange     '2.12.0',
+28 silly addNameRange     '2.14.0',
+28 silly addNameRange     '2.16.0',
+28 silly addNameRange     '2.16.2',
+28 silly addNameRange     '2.16.4',
+28 silly addNameRange     '2.16.6',
+28 silly addNameRange     '2.18.0',
+28 silly addNameRange     '2.19.0',
+28 silly addNameRange     '2.20.0',
+28 silly addNameRange     '2.21.0',
+28 silly addNameRange     '2.22.0',
+28 silly addNameRange     '2.23.0',
+28 silly addNameRange     '2.24.0',
+28 silly addNameRange     '2.25.0',
+28 silly addNameRange     '2.26.0',
+28 silly addNameRange     '2.27.0',
+28 silly addNameRange     '2.28.0',
+28 silly addNameRange     '2.29.0',
+28 silly addNameRange     '2.30.0',
+28 silly addNameRange     '2.31.0',
+28 silly addNameRange     '2.32.0',
+28 silly addNameRange     '2.33.0',
+28 silly addNameRange     '2.34.0',
+28 silly addNameRange     '2.35.0',
+28 silly addNameRange     '2.36.0',
+28 silly addNameRange     '2.37.0',
+28 silly addNameRange     '2.38.0',
+28 silly addNameRange     '2.39.0',
+28 silly addNameRange     '2.40.0',
+28 silly addNameRange     '2.41.0',
+28 silly addNameRange     '2.42.0',
+28 silly addNameRange     '2.43.0',
+28 silly addNameRange     '2.44.0',
+28 silly addNameRange     '2.45.0',
+28 silly addNameRange     '2.46.0',
+28 silly addNameRange     '2.47.0',
+28 silly addNameRange     '2.48.0',
+28 silly addNameRange     '2.49.0',
+28 silly addNameRange     '2.50.0',
+28 silly addNameRange     '2.51.0',
+28 silly addNameRange     '2.52.0',
+28 silly addNameRange     '2.53.0',
+28 silly addNameRange     '2.54.0',
+28 silly addNameRange     '2.55.0' ] ]
+29 verbose addNamed request@2.55.0
+30 silly addNamed semver.valid 2.55.0
+31 silly addNamed semver.validRange 2.55.0
+32 silly mapToRegistry name request
+33 silly mapToRegistry using default registry
+34 silly mapToRegistry registry https://registry.npmjs.org/
+35 silly mapToRegistry uri https://registry.npmjs.org/request
+36 verbose addRemoteTarball https://registry.npmjs.org/request/-/request-2.55.0.tgz not in flight; adding
+37 verbose addRemoteTarball [ 'https://registry.npmjs.org/request/-/request-2.55.0.tgz',
+37 verbose addRemoteTarball   'd75c1cdf679d76bb100f9bffe1fe551b5c24e93d' ]
+38 info retry fetch attempt 1 at 12:11:13 AM
+39 info attempt registry request try #1 at 12:11:13 AM
+40 http fetch GET https://registry.npmjs.org/request/-/request-2.55.0.tgz
+41 http fetch 200 https://registry.npmjs.org/request/-/request-2.55.0.tgz
+42 silly fetchAndShaCheck shasum d75c1cdf679d76bb100f9bffe1fe551b5c24e93d
+43 verbose addTmpTarball C:\Users\Justinh\AppData\Local\Temp\npm-6600-21a24d1f\registry.npmjs.org\request\-\request-2.55.0.tgz not in flight; adding
+44 verbose addTmpTarball already have metadata; skipping unpack for request@2.55.0
+45 silly cache afterAdd request@2.55.0
+46 verbose afterAdd C:\Users\Justinh\AppData\Roaming\npm-cache\request\2.55.0\package\package.json not in flight; writing
+47 verbose afterAdd C:\Users\Justinh\AppData\Roaming\npm-cache\request\2.55.0\package\package.json written
+48 silly install resolved [ { name: 'request',
+48 silly install resolved     description: 'Simplified HTTP request client.',
+48 silly install resolved     tags: [ 'http', 'simple', 'util', 'utility' ],
+48 silly install resolved     version: '2.55.0',
+48 silly install resolved     author: { name: 'Mikeal Rogers', email: 'mikeal.rogers@gmail.com' },
+48 silly install resolved     repository: { type: 'git', url: 'https://github.com/request/request.git' },
+48 silly install resolved     bugs: { url: 'http://github.com/request/request/issues' },
+48 silly install resolved     license: 'Apache-2.0',
+48 silly install resolved     engines: { node: '>=0.8.0' },
+48 silly install resolved     main: 'index.js',
+48 silly install resolved     dependencies:
+48 silly install resolved      { bl: '~0.9.0',
+48 silly install resolved        caseless: '~0.9.0',
+48 silly install resolved        'forever-agent': '~0.6.0',
+48 silly install resolved        'form-data': '~0.2.0',
+48 silly install resolved        'json-stringify-safe': '~5.0.0',
+48 silly install resolved        'mime-types': '~2.0.1',
+48 silly install resolved        'node-uuid': '~1.4.0',
+48 silly install resolved        qs: '~2.4.0',
+48 silly install resolved        'tunnel-agent': '~0.4.0',
+48 silly install resolved        'tough-cookie': '>=0.12.0',
+48 silly install resolved        'http-signature': '~0.10.0',
+48 silly install resolved        'oauth-sign': '~0.6.0',
+48 silly install resolved        hawk: '~2.3.0',
+48 silly install resolved        'aws-sign2': '~0.5.0',
+48 silly install resolved        stringstream: '~0.0.4',
+48 silly install resolved        'combined-stream': '~0.0.5',
+48 silly install resolved        isstream: '~0.1.1',
+48 silly install resolved        'har-validator': '^1.4.0' },
+48 silly install resolved     scripts:
+48 silly install resolved      { test: 'npm run lint && node node_modules/.bin/taper tests/test-*.js && npm run test-browser',
+48 silly install resolved        'test-browser': 'node tests/browser/start.js',
+48 silly install resolved        lint: 'node node_modules/.bin/eslint lib/ *.js tests/ && echo Lint passed.' },
+48 silly install resolved     devDependencies:
+48 silly install resolved      { browserify: '~5.9.1',
+48 silly install resolved        'browserify-istanbul': '~0.1.3',
+48 silly install resolved        coveralls: '~2.11.2',
+48 silly install resolved        eslint: '0.17.1',
+48 silly install resolved        'function-bind': '~1.0.0',
+48 silly install resolved        istanbul: '~0.3.2',
+48 silly install resolved        karma: '~0.12.21',
+48 silly install resolved        'karma-browserify': '~3.0.1',
+48 silly install resolved        'karma-cli': '0.0.4',
+48 silly install resolved        'karma-coverage': '0.2.6',
+48 silly install resolved        'karma-phantomjs-launcher': '~0.1.4',
+48 silly install resolved        'karma-tap': '~1.0.1',
+48 silly install resolved        rimraf: '~2.2.8',
+48 silly install resolved        'server-destroy': '~1.0.0',
+48 silly install resolved        tape: '~3.0.0',
+48 silly install resolved        taper: '~0.4.0',
+48 silly install resolved        bluebird: '~2.9.21' },
+48 silly install resolved     gitHead: 'b6000376387db12d0c2d7ed9ee87b0ba123e36dc',
+48 silly install resolved     homepage: 'https://github.com/request/request',
+48 silly install resolved     _id: 'request@2.55.0',
+48 silly install resolved     _shasum: 'd75c1cdf679d76bb100f9bffe1fe551b5c24e93d',
+48 silly install resolved     _from: 'request@*',
+48 silly install resolved     _npmVersion: '1.4.28',
+48 silly install resolved     _npmUser: { name: 'simov', email: 'simeonvelichkov@gmail.com' },
+48 silly install resolved     maintainers: [ [Object], [Object], [Object], [Object] ],
+48 silly install resolved     dist:
+48 silly install resolved      { shasum: 'd75c1cdf679d76bb100f9bffe1fe551b5c24e93d',
+48 silly install resolved        tarball: 'http://registry.npmjs.org/request/-/request-2.55.0.tgz' },
+48 silly install resolved     directories: {},
+48 silly install resolved     _resolved: 'https://registry.npmjs.org/request/-/request-2.55.0.tgz' } ]
+49 info install request@2.55.0 into C:\Users\Justinh\Dropbox\402Dashboard\402dashboard
+50 info installOne request@2.55.0
+51 verbose installOne of request to C:\Users\Justinh\Dropbox\402Dashboard\402dashboard not in flight; installing
+52 verbose lock using C:\Users\Justinh\AppData\Roaming\npm-cache\_locks\request-5057312c5848d1ac.lock for C:\Users\Justinh\Dropbox\402Dashboard\402dashboard\node_modules\request
+53 silly install write writing request 2.55.0 to C:\Users\Justinh\Dropbox\402Dashboard\402dashboard\node_modules\request
+54 silly cache addNamed cb request@2.55.0
+55 verbose unbuild node_modules\request
+56 info preuninstall request@2.55.1
+57 info uninstall request@2.55.1
+58 verbose unbuild rmStuff request@2.55.1 from C:\Users\Justinh\Dropbox\402Dashboard\402dashboard\node_modules
+59 info postuninstall request@2.55.1
+60 verbose gentlyRm vacuuming C:\Users\Justinh\Dropbox\402Dashboard\402dashboard\node_modules\request
+61 silly gentlyRm purging C:\Users\Justinh\Dropbox\402Dashboard\402dashboard\node_modules\request
+62 silly gentlyRm quitting because other entries in C:\Users\Justinh\Dropbox\402Dashboard\402dashboard\node_modules
+63 verbose tar unpack C:\Users\Justinh\AppData\Roaming\npm-cache\request\2.55.0\package.tgz
+64 verbose tar unpacking to C:\Users\Justinh\Dropbox\402Dashboard\402dashboard\node_modules\request
+65 verbose gentlyRm vacuuming C:\Users\Justinh\Dropbox\402Dashboard\402dashboard\node_modules\request
+66 silly gentlyRm Error: EPERM, lstat 'C:\Users\Justinh\Dropbox\402Dashboard\402dashboard\node_modules\request'
+66 silly gentlyRm     at Error (native)
+67 verbose unlock done using C:\Users\Justinh\AppData\Roaming\npm-cache\_locks\request-5057312c5848d1ac.lock for C:\Users\Justinh\Dropbox\402Dashboard\402dashboard\node_modules\request
+68 verbose stack Error: EPERM, lstat 'C:\Users\Justinh\Dropbox\402Dashboard\402dashboard\node_modules\request'
+68 verbose stack     at Error (native)
+69 verbose cwd C:\Users\Justinh\Dropbox\402Dashboard\402dashboard
+70 error Windows_NT 6.1.7601
+71 error argv "G:\\Justins Stuff\\Development\\Nodejs\\\\node.exe" "G:\\Justins Stuff\\Development\\Nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "request"
+72 error node v0.12.0
+73 error npm  v2.5.1
+74 error path C:\Users\Justinh\Dropbox\402Dashboard\402dashboard\node_modules\request
+75 error code EPERM
+76 error errno -4048
+77 error Error: EPERM, lstat 'C:\Users\Justinh\Dropbox\402Dashboard\402dashboard\node_modules\request'
+77 error     at Error (native)
+77 error  { [Error: EPERM, lstat 'C:\Users\Justinh\Dropbox\402Dashboard\402dashboard\node_modules\request']
+77 error   errno: -4048,
+77 error   code: 'EPERM',
+77 error   path: 'C:\\Users\\Justinh\\Dropbox\\402Dashboard\\402dashboard\\node_modules\\request' }
+78 error Please try running this command again as root/Administrator.
+79 verbose exit [ -4048, true ]
+80 verbose unbuild node_modules\request
+81 verbose gentlyRm vacuuming C:\Users\Justinh\Dropbox\402Dashboard\402dashboard\node_modules\request

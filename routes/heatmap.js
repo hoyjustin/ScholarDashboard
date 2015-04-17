@@ -1,12 +1,35 @@
 var express = require('express');
 var router = express.Router();
+var request = require('request');
+var httpHandler = require('http-handler');
+
+var query = {
+    firstname: "Abram",
+    lastname: "Hindle",
+    sciverse: null,
+    twitterhandle: null,
+    mendeley: null,
+    email: null,
+    googlescholar: null
+}
 
 router.get('/', function(req, res, next) {
-    if (Parse.User.current()) {
         res.render('heatmap', { title: '402Dashboard', banner:'Heat Map', filename: 'heatmap' } );
-    } else {
-        res.redirect('/');
+});
+
+// routing to retrieve affiliations
+router.get('/retrieveAffiliations', function(req, res, next) {
+
+    var successCb = function (affiliations) {
+        console.log(affiliations)
+        res.json(affiliations);
     }
+    var errorCb = function (affiliations, error) {
+        console.log(error);
+        res.status(400).send('ERROR: Cannot retrieve affiiliations');
+    }
+    httpHandler.retrieveAffiliationsJSON(successCb, errorCb, {'query': query});
+
 });
 
 // routing for testing data

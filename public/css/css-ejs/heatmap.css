@@ -1,7 +1,7 @@
 body, html { margin:0; padding:0; height:100%;}
 
 .leaflet-map-pane img { max-width: none; max-height: none;}
-#map {  width:100%; height:100%; position: relative; margin-left: auto; margin-right: auto; }
+#map {  width:80%; height:70%; position: relative; margin-left: auto; margin-right: auto; }
 #dateSlider {
   margin-left: auto;
   margin-right: auto;
