@@ -1,171 +1,119 @@
-
-
 <html>
     <head>
         <% include template/header %>
         <link rel="stylesheet" href="css/css-ejs/publications.css">
     </head>
+
+    <!-- JAVASCRIPT to clear search text when the field is clicked -->
+    <script type="text/javascript">
+    window.onload = function(){ 
+        //Get submit button
+        var submitbutton = document.getElementById("tfq");
+        //Add listener to submit button
+        if(submitbutton.addEventListener){
+            submitbutton.addEventListener("click", function() {
+                if (submitbutton.value == 'Search our website'){//Customize this text string to whatever you want
+                    submitbutton.value = '';
+                }
+            });
+        }
+    }
+    </script>
+
     <body>
         <% include template/navbar %>
-        
 
-            
-<meta charset="utf-8">
-<style>
-
-    .background {
-      fill: none;
-      pointer-events: all;
-    }
-
-    #states {
-      fill: #aaa;
-    }
-
-    #states .active {
-      fill: orange;
-    }
-
-    #state-borders {
-      fill: none;
-      stroke: #fff;
-      stroke-width: 1.5px;
-      stroke-linejoin: round;
-      stroke-linecap: round;
-      pointer-events: none;
-    }
-
-</style>
-<body>
-
-        <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
-        <script src="node_modules/datamaps/dist/datamaps.world.min.js"></script>
         <div class="container">
-        <div id="wrap">
-        <div id="container" style="position: relative; width: 1000px; height: 500px; display: block; float:left; "></div>
 
-        <div class="bottomMenu">
+            <script src="http://d3js.org/d3.v3.min.js"></script>
+            <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+            <script>
+                var margin = {top: 0, right: 20, bottom: 100, left: 80},
+                    width = 960 - margin.left - margin.right,
+                    height = 500 - margin.top - margin.bottom;
 
-        <h1><div id="Title">Countries</div></h1>
-        <form action="">
-        <input type="checkbox" name="countries" value="Canada">Canada<br>
-        <input type="checkbox" name="countries" value="United States">United States<br>
-        <input type="checkbox" name="countries" value="Canada">Russia<br>
-        <input type="checkbox" name="countries" value="United States">Brazil<br>
-        <input type="checkbox" name="countries" value="Canada">Mexico<br>
-        <input type="checkbox" name="countries" value="United States">France<br>
-        <input type="checkbox" name="countries" value="Canada">United Kingdom<br>
-        <input type="checkbox" name="countries" value="United States">China<br>
-        <input type="checkbox" name="countries" value="Canada">Korea<br>
-        <input type="checkbox" name="countries" value="United States">India<br>
-        <input type="checkbox" name="countries" value="Canada">Australia<br>
-        <input type="checkbox" name="countries" value="United States">Japan<br>
-        <input type="checkbox" name="countries" value="Canada">Indonesia<br>
-        <input type="checkbox" name="countries" value="United States">Norway<br>
-        <input type="checkbox" name="countries" value="Canada">Spain<br>
-        <input type="checkbox" name="countries" value="United States">Italy</br>
-        <input id="queryButton" type="button" onclick="myFunction()" value="Query">
-        </form>
-        </div>
-        </div>
+                var formatPercent = d3.format(".0%");
 
+                var x = d3.scale.ordinal()
+                    .rangeRoundBands([0, width], .1);
 
+                var y = d3.scale.linear()
+                    .range([height, 0]);
 
-        <script>
+                var xAxis = d3.svg.axis()
+                    .scale(x)
+                    .orient("bottom");
 
+                var yAxis = d3.svg.axis()
+                    .scale(y)
+                    .orient("left")
+                    .tickFormat(formatPercent);
 
+                var tip = d3.tip()
+                  .attr('class', 'd3-tip')
+                  .offset([-10, 0])
+                  .html(function(d) {
+                    return "<strong>Publication count:</strong> <span style='color:red'>" + d.frequency + "</span>";
+                  })
 
+                var svg = d3.select("body").append("svg")
+                    .attr("width", width + margin.left + margin.right)
+                    .attr("height", height + margin.top + margin.bottom)
+                  .append("g")
+                    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-        var bombMap = new Datamap({
-            element: document.getElementById('container'),
-            scope: 'world',
-            geographyConfig: {
-                popupOnHover: true,
-                highlightOnHover: true
-            },
-            setProjection: function(element) {
-            var projection = d3.geo.equirectangular()
-              .center([19, -3])
-              .rotate([4.4, 0])
-              .scale(150)
-              .translate([element.offsetWidth / 2, element.offsetHeight / 2]);
-            var path = d3.geo.path()
-              .projection(projection);
+                svg.call(tip);
 
-            return {path: path, projection: projection};
-          },
-            fills: {
-                'USA': '#1f77b4',
-                'RUS': '#9467bd',
-                'PRK': '#ff7f0e',
-                'PRC': '#2ca02c',
-                'IND': '#e377c2',
-                'GBR': '#8c564b',
-                'FRA': '#d62728',
-                'PAK': '#7f7f7f',
-                defaultFill: '#EDDC4E'
-            },
-            data: {
-                'RUS': {fillKey: 'RUS'},
-                'PRK': {fillKey: 'PRK'},
-                'PRC': {fillKey: 'PRC'},
-                'IND': {fillKey: 'IND'},
-                'GBR': {fillKey: 'GBR'},
-                'FRA': {fillKey: 'FRA'},
-                'PAK': {fillKey: 'PAK'},
-                'USA': {fillKey: 'USA'}
-            }
-        });
+                d3.tsv("data/data.tsv", type, function(error, data) {
+                  x.domain(data.map(function(d) { return d.letter; }));
+                  y.domain([0, d3.max(data, function(d) { return d.frequency; })]);
 
-             var bombs = [{
-                name: 'Joe 4',
-                radius: 25,
-                yield: 400,
-                country: 'USSR',
-                fillKey: 'RUS',
-                significance: 'First fusion weapon test by the USSR (not "staged")',
-                date: '1953-08-12',
-                latitude: 50.07,
-                longitude: 78.43
-              },{
-                name: 'RDS-37',
-                radius: 40,
-                yield: 1600,
-                country: 'USSR',
-                fillKey: 'RUS',
-                significance: 'First "staged" thermonuclear weapon test by the USSR (deployable)',
-                date: '1955-11-22',
-                latitude: 50.07,
-                longitude: 78.43
+                  svg.append("g")
+                      .attr("class", "x axis")
+                      .attr("transform", "translate(0," + height + ")" )
+                      .call(xAxis);
 
-              },{
-                name: 'Tsar Bomba',
-                radius: 15,
-                yield: 50000,
-                country: 'USA',
-                fillKey: 'RUS',
-                significance: 'Largest thermonuclear weapon ever tested—scaled down from its initial 100 Mt design by 50%',
-                date: '1961-10-31',
-                latitude: 53,
-                longitude: -113
-              }
-            ];
-            //draw bubbles for bombs
-            bombMap.bubbles(bombs, {
-                popupTemplate: function (geo, data) { 
-                        return ['<div class="hoverinfo">' +  data.name,
-                        '<br/>Payload: ' +  data.yield + ' kilotons',
-                        '<br/>Country: ' +  data.country + '',
-                        '<br/>Date: ' +  data.date + '',
-                        '</div>'].join('');
+                  svg.append("g")
+                      .attr("class", "y axis")
+                      .call(yAxis)
+                    .append("text")
+                      .attr("transform", "rotate(-90)")
+                      .attr("y", 6)
+                      .attr("dy", ".71em")
+                      .style("text-anchor", "end")
+                      .text("Publications Count");
+
+                  svg.selectAll(".bar")
+                      .data(data)
+                    .enter().append("rect")
+                      .attr("class", "bar")
+                      .attr("x", function(d) { return x(d.letter); })
+                      .attr("width", x.rangeBand())
+                      .attr("y", function(d) { return y(d.frequency); })
+                      .attr("height", function(d) { return height - y(d.frequency); })
+                      .on('mouseover', tip.show)
+                      .on('mouseout', tip.hide)
+
+                });
+
+                function type(d) {
+                  d.frequency = +d.frequency;
+                  return d;
                 }
-        });
 
             </script>
 
 
-            
+
+            <!-- HTML for SEARCH BAR -->
+                <div id="tfheader">
+                    <form id="tfnewsearch" method="get" action="http://www.google.com">
+                            <input type="text" id="tfq" class="tftextinput2" name="q" size="21" maxlength="120" value="Search publications"><input type="submit" value=">" class="tfbutton2">
+                    </form>
+                    <div class="tfclear"></div>
+                </div>
+    
+            </div>
         </div>
         <% include template/banner %>
         <% include template/footer %>
