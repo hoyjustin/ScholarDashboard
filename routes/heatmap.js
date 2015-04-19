@@ -13,6 +13,8 @@ var query = {
     googlescholar: null
 }
 
+var keyword = "Hadoop"
+
 router.get('/', function(req, res, next) {
         res.render('heatmap', { title: '402Dashboard', banner:'Heat Map', filename: 'heatmap' } );
 });
@@ -31,6 +33,22 @@ router.get('/retrieveAffiliations', function(req, res, next) {
     httpHandler.retrieveAffiliationsJSON(successCb, errorCb, {'query': query});
 
 });
+
+// routing to retrieve articles by keyword
+router.get('/retrieveArticlesKeyword', function(req, res, next) {
+
+    var successCb = function (articles) {
+        console.log(articles)
+        res.json(articles);
+    }
+    var errorCb = function (articles, error) {
+        console.log(error);
+        res.status(400).send('ERROR: Cannot retrieve articles');
+    }
+    httpHandler.retrieveDocumentsByTitleJSON(successCb, errorCb, {'keyword': keyword});
+    
+});
+
 
 // routing for testing data
 router.get('/getTestHeatmap', function(req, res, next) {
