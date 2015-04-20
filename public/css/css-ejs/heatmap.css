@@ -2,14 +2,7 @@ body, html { margin:0; padding:0; height:100%;}
 
 .leaflet-map-pane img { max-width: none; max-height: none;}
 #map {  width:80%; height:70%; position: relative; margin-left: auto; margin-right: auto; }
-#dateSlider {
-  margin-left: auto;
-  margin-right: auto;
-  position: relative;
-  width:80%;
-  padding: 20px;
-  /*            visibility: hidden;*/
-}
+
 #style {
   margin-left: auto;
   margin-right: auto;
@@ -42,88 +35,76 @@ svg rect {
   margin-top: -35px;
 }
 
-#beacons {
-  height:100%;
-  background: whitesmoke;
-  position: relative;
-  margin-top: 0;
-  width: 100%;
-  padding: 15px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
-  box-shadow: inset 1px 1px 0 white;
+.loading {
+  -webkit-animation:fadein 2s;
+     -moz-animation:fadein 2s;
+       -o-animation:fadein 2s;
+          animation:fadein 2s;
+}
+@-moz-keyframes fadein {
+  from {opacity:0}
+  to {opacity:1}
+}
+@-webkit-keyframes fadein {
+  from {opacity:0}
+  to {opacity:1}
+}
+@-o-keyframes fadein {
+  from {opacity:0}
+  to {opacity:1}
+}
+@keyframes fadein {
+  from {opacity:0}
+  to {opacity:1}
 }
 
-ul.list{
-  margin: 0 auto;
-  height: calc(100% - 80px);
-  overflow-y: auto;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 5px 5px 0px 5px;
-  border-left: none;
-  border-right: none;
+.spinner-wrapper {
+  min-width:80%;
+  min-height:70%;
+  width:80%; height:70%;
+  left:0;
+  right:0;
+  margin-left:auto;
+  margin-right:auto;
+  background:rgba(255,255,255,0.50);
+  position:absolute;
+  z-index:300;
 }
 
-li.list{
-  list-style: none;
-  background-color: rgba(0, 0, 0, 0.05);
-  background-image: 
-  linear-gradient(
-    90deg,
-    #FFD32E 10px,
-    #EEE 10px,
-    #EEE 11px,
-    transparent 11px);
-  padding: 10px 15px 10px 25px;
-  border: 1px solid #CCC;
-  box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5);
-  margin-bottom: 5px;
-  width: 100%;
-  box-sizing: border-box;
-  cursor: pointer;
-  border-radius: 3px;
+.spinner-text {position:absolute;top:41.5%;left:47%;margin:16px 0 0 35px;font-size:9px;font-family:Arial;color:#000;letter-spacing:1px;font-weight:700}
+.spinner {
+  margin:0;
+  display:block;
+  position:absolute;
+  left:45%;
+  top:40%;
+  border:25px solid rgba(0,0,0,0.5);
+  width:1px;
+  height:1px;
+  border-left-color:transparent;
+  border-right-color:transparent;
+  -webkit-border-radius:50px;
+     -moz-border-radius:50px;
+          border-radius:50px;
+  -webkit-animation:spin 1.5s infinite;
+     -moz-animation:spin 1.5s infinite;
+          animation:spin 1.5s infinite;
 }
 
-#query {
-  width: 60%;
-  box-sizing: border-box;
-  font-size: 19px;
-  padding: 5px;
-  font-family: calibri light;
-  margin-bottom: 10px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 3px;
-  box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.1);
+@-webkit-keyframes spin {
+  0%,100% {-webkit-transform:rotate(0deg) scale(1)}
+  50%     {-webkit-transform:rotate(720deg) scale(0.6)}
 }
 
-#beacons span {
-  display: block;
-  position: absolute;
-  background: #FFD32E;
-  bottom: 0px;
-  left: -1px;
-  width: 100%;
-  border-radius: 0 0 5px 5px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 10px;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: inset 1px 1px rgba(255, 255, 255, 0.5);
+@-moz-keyframes spin  {
+  0%,100% {-moz-transform:rotate(0deg) scale(1)}
+  50%     {-moz-transform:rotate(720deg) scale(0.6)}
 }
-
-#beacons select {
-  width: 35%;
-  margin-left: auto;
-  margin-top: 0px;
-  border-radius: 0 3px 3px 0;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-left: 1px solid rgba(0, 0, 0, 0.1);
-  position: absolute;
-  padding: 7.5px;
-  box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.1);
+@-o-keyframes spin  {
+  0%,100% {-o-transform:rotate(0deg) scale(1)}
+  50%     {-o-transform:rotate(720deg) scale(0.6)}
 }
-
-#beacons select:focus, #query:focus {
-  border: 1px solid #FFD32E;
-  box-shadow: 0 0 10px rgba(255, 255, 0, 0.1);
-  outline: none;
+@keyframes spin  {
+  0%,100% {transform:rotate(0deg) scale(1)}
+  50%     {transform:rotate(720deg) scale(0.6)}
 }

@@ -13,7 +13,7 @@ var query = {
     googlescholar: null
 }
 
-var keyword = "Hadoop"
+var keyword = "network"
 
 // var locations = {locations: [{city:"London",country:"Canada"},
 // {city:"London"},

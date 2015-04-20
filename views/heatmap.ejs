@@ -8,30 +8,35 @@
 <body>
     <% include template/navbar %>
     <% include template/banner %>
-
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+    <style>
+    .leaflet-container {
+        background: rgba(255,255,255,.5)
+    }
+    </style>
     <div class="container-fluid">
         <div class="row">
-                <div id = 'map'></div>
+            <div id = 'loading'></div>
+            <div id = 'map'></div>
         </div>
     </div>
     <% include modules/modal %>
     <% include template/footer %>
 </body>
 <script>
+    $("#loading").append("<div class='spinner-wrapper'><span class='spinner-text'>LOADING</span><span class='spinner'></span></div>");
 
     var baseLayer = L.tileLayer(
       'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
-        attribution: '...',
-        maxZoom: 18,
-            minZoom: 2,
+        noWrap: true,
+        maxZoom: 8
       }
     );
 
     var cfg = {
       // radius should be small ONLY if scaleRadius is true (or small radius is intended)
       // if scaleRadius is false it will be the constant radius used in pixels
-      "radius": 2,
+      "radius": 1,
       "maxOpacity": .8, 
       // scales the radius based on map zoom
       "scaleRadius": true, 
@@ -90,6 +95,7 @@
 
             console.log(heatmapData);
             heatmapLayer.setData(heatmapData);
+            $("#loading").hide();
         });
     });
 
