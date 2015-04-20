@@ -20,86 +20,78 @@
 </body>
 <script>
 
-    var w = 1280,
-        h = 777;
+    var baseLayer = L.tileLayer(
+      'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+        attribution: '...',
+        maxZoom: 18,
+            minZoom: 2,
+      }
+    );
 
-    var NORMALIZE_COEF = 4;
-    var Y_SCALING = 0;
-    var X_SCALING = 0;
-    var beaconList = [];
-    var beaconLayer;
-
-var baseLayer = L.tileLayer(
-  'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
-    attribution: '...',
-    maxZoom: 18,
-        minZoom: 2,
-  }
-);
-
-var cfg = {
-  // radius should be small ONLY if scaleRadius is true (or small radius is intended)
-  // if scaleRadius is false it will be the constant radius used in pixels
-  "radius": 2,
-  "maxOpacity": .8, 
-  // scales the radius based on map zoom
-  "scaleRadius": true, 
-  // if set to false the heatmap uses the global maximum for colorization
-  // if activated: uses the data maximum within the current map boundaries 
-  //   (there will always be a red spot with useLocalExtremas true)
-  "useLocalExtrema": true,
-  // which field name in your data represents the latitude - default "lat"
-  latField: 'lat',
-  // which field name in your data represents the longitude - default "lng"
-  lngField: 'lng',
-  // which field name in your data represents the data value - default "value"
-  valueField: 'count'
-};
-
-
-var heatmapLayer = new HeatmapOverlay(cfg);
-
-var map = new L.Map('map', {
-  center: new L.LatLng(25.6586, -80.3568),
-  zoom: 4,
-  layers: [baseLayer, heatmapLayer]
-});
-
-$.get('/heatmap/retrieveLocationCoords')
-.success(function (rawData) {
-    console.log(rawData);
-
-    // don't forget to include leaflet-heatmap.js
-    var heatmapData = {
-      max: 8,
-      data: []
+    var cfg = {
+      // radius should be small ONLY if scaleRadius is true (or small radius is intended)
+      // if scaleRadius is false it will be the constant radius used in pixels
+      "radius": 2,
+      "maxOpacity": .8, 
+      // scales the radius based on map zoom
+      "scaleRadius": true, 
+      // if set to false the heatmap uses the global maximum for colorization
+      // if activated: uses the data maximum within the current map boundaries 
+      //   (there will always be a red spot with useLocalExtremas true)
+      "useLocalExtrema": true,
+      // which field name in your data represents the latitude - default "lat"
+      latField: 'lat',
+      // which field name in your data represents the longitude - default "lng"
+      lngField: 'lng',
+      // which field name in your data represents the data value - default "value"
+      valueField: 'count'
     };
 
-            rawData.results.forEach(function(elem, elemIndex) {
-                console.log(elem, elemIndex);
 
-                if(elem.locations && elem.locations[0] && elem.locations[0].latLng) {
-                                    console.log(JSON.stringify(elem.locations[0].latLng));
-                                    heatmapData.data.push(elem.locations[0].latLng)
-                //     elem.x = parseFloat((elem.coordX*NORMALIZE_COEF)-X_SCALING);
-                //     elem.y = parseFloat((elem.coordY*NORMALIZE_COEF)-Y_SCALING);
-                //     elem.date = moment(elem.timestamp.iso);
-                //     var dateStr = moment(elem.timestamp.iso).format('MM/DD/YYYY');
-                //     // check for preexisting data for a date
-                //     if(dateStr in dateHash) {
-                //         dateHash[dateStr].push(elem);
-                //     }
-                //     else {
-                //         var goodData = [];
-                //         goodData.push(elem);
-                //         dateHash[dateStr] = goodData;
-                //     }
+    var heatmapLayer = new HeatmapOverlay(cfg);
+
+    var map = new L.Map('map', {
+      center: new L.LatLng(25.6586, -80.3568),
+      zoom: 4,
+      layers: [baseLayer, heatmapLayer]
+    });
+
+    $.get('/heatmap/retrieveArticlesKeyword')
+    .success(function (rawData) {
+
+        var articleLocations = []
+
+        rawData.entry.forEach(function(elem, elemIndex) {
+            for (i = 0; i < elem.affiliations.length; i++) {
+                var location = {
+                    city: elem.affiliations[i]["affiliation-city"],
+                    country: elem.affiliations[i]["affiliation_country"]
                 }
-            });
+                articleLocations.push(location);
+            }
+        });
+        var articleLocationsJSON = JSON.stringify(articleLocations)
+        // console.log(articleLocationsJSON)
+        $.get('/heatmap/retrieveLocationCoords', {"locations": articleLocationsJSON})
+        .success(function (rawData) {
 
+            // don't forget to include leaflet-heatmap.js
+            var heatmapData = {
+              data: []
+            };
 
-    heatmapLayer.setData(heatmapData);
-});
+            if(rawData.results) {
+                rawData.results.forEach(function(elem, elemIndex) {
+                    if(elem.locations && elem.locations[0] && elem.locations[0]["latLng"]) {
+                        heatmapData.data.push(elem.locations[0]["latLng"])
+                    }
+                });
+            }   
+
+            console.log(heatmapData);
+            heatmapLayer.setData(heatmapData);
+        });
+    });
 
 
 </script>

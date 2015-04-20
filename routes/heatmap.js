@@ -15,12 +15,12 @@ var query = {
 
 var keyword = "Hadoop"
 
-var locations = {locations: [{city:"London",country:"Canada"},
-{city:"London"},
-{city:"Hong Kong",country: "China"},
-{city:"Edmonton"},
-{street:"1090 N Charlotte St, Lancaster, PA"}
-]};
+// var locations = {locations: [{city:"London",country:"Canada"},
+// {city:"London"},
+// {city:"Hong Kong",country: "China"},
+// {city:"Edmonton"},
+// {street:"1090 N Charlotte St, Lancaster, PA"}
+// ]};
 
 router.get('/', function(req, res, next) {
         res.render('heatmap', { title: '402Dashboard', banner:'Heat Map', filename: 'heatmap' } );
@@ -57,8 +57,11 @@ router.get('/retrieveArticlesKeyword', function(req, res, next) {
 });
 
 
-// routing to retrieve articles by keyword
+// routing to retrieve coords of locations
 router.get('/retrieveLocationCoords', function(req, res, next) {
+    var locationsQuery = JSON.parse(req.query.locations)
+    var locations = {locations: locationsQuery}
+    // console.log(locationsQuery)
     var successCb = function (locations) {
         console.log(locations)
         res.json(locations);
