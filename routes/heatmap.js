@@ -15,6 +15,13 @@ var query = {
 
 var keyword = "Hadoop"
 
+var locations = {locations: [{city:"London",country:"Canada"},
+{city:"London"},
+{city:"Hong Kong",country: "China"},
+{city:"Edmonton"},
+{street:"1090 N Charlotte St, Lancaster, PA"}
+]};
+
 router.get('/', function(req, res, next) {
         res.render('heatmap', { title: '402Dashboard', banner:'Heat Map', filename: 'heatmap' } );
 });
@@ -49,6 +56,19 @@ router.get('/retrieveArticlesKeyword', function(req, res, next) {
     
 });
 
+
+// routing to retrieve articles by keyword
+router.get('/retrieveLocationCoords', function(req, res, next) {
+    var successCb = function (locations) {
+        console.log(locations)
+        res.json(locations);
+    }
+    var errorCb = function (locations, error) {
+        console.log(error);
+        res.status(400).send('ERROR: Cannot retrieve locations');
+    }
+    httpHandler.retrieveCoordByLocationJSON(successCb, errorCb, {'locations': locations});
+});
 
 // routing for testing data
 router.get('/getTestHeatmap', function(req, res, next) {

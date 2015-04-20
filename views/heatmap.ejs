@@ -29,16 +29,11 @@
     var beaconList = [];
     var beaconLayer;
 
-// don't forget to include leaflet-heatmap.js
-var testData = {
-  max: 8,
-  data: [{lat: 24.6408, lng:46.7728, count: 3},{lat: 50.75, lng:-1.55, count: 1}]
-};
-
 var baseLayer = L.tileLayer(
   'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
     attribution: '...',
-    maxZoom: 18
+    maxZoom: 18,
+        minZoom: 2,
   }
 );
 
@@ -70,7 +65,41 @@ var map = new L.Map('map', {
   layers: [baseLayer, heatmapLayer]
 });
 
-heatmapLayer.setData(testData);
+$.get('/heatmap/retrieveLocationCoords')
+.success(function (rawData) {
+    console.log(rawData);
+
+    // don't forget to include leaflet-heatmap.js
+    var heatmapData = {
+      max: 8,
+      data: []
+    };
+
+            rawData.results.forEach(function(elem, elemIndex) {
+                console.log(elem, elemIndex);
+
+                if(elem.locations && elem.locations[0] && elem.locations[0].latLng) {
+                                    console.log(JSON.stringify(elem.locations[0].latLng));
+                                    heatmapData.data.push(elem.locations[0].latLng)
+                //     elem.x = parseFloat((elem.coordX*NORMALIZE_COEF)-X_SCALING);
+                //     elem.y = parseFloat((elem.coordY*NORMALIZE_COEF)-Y_SCALING);
+                //     elem.date = moment(elem.timestamp.iso);
+                //     var dateStr = moment(elem.timestamp.iso).format('MM/DD/YYYY');
+                //     // check for preexisting data for a date
+                //     if(dateStr in dateHash) {
+                //         dateHash[dateStr].push(elem);
+                //     }
+                //     else {
+                //         var goodData = [];
+                //         goodData.push(elem);
+                //         dateHash[dateStr] = goodData;
+                //     }
+                }
+            });
+
+
+    heatmapLayer.setData(heatmapData);
+});
 
 
 </script>
