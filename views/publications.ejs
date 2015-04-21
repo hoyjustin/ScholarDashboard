@@ -1,115 +1,60 @@
 <html>
     <head>
         <% include template/header %>
+        <% include template/navbar %>
+        <% include template/banner %>
         <link rel="stylesheet" href="css/css-ejs/publications.css">
     </head>
 
-    <!-- JAVASCRIPT to clear search text when the field is clicked -->
-    <script type="text/javascript">
-    window.onload = function(){ 
-        //Get submit button
-        var submitbutton = document.getElementById("publication_search");
-        //Add listener to submit button
-        if(submitbutton.addEventListener){
-            submitbutton.addEventListener("click", function() {
-                if (submitbutton.value == 'Search our website'){//Customize this text string to whatever you want
-                    submitbutton.value = '';
-                }
-            });
-        }
-    }
-    </script>
-
     <body>
-        <% include template/navbar %>
 
         <div class="container">
+            <div class="col-md-8"><% include template/searchbar %></div>
 
             <script src="http://d3js.org/d3.v3.min.js"></script>
             <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
             <script>
 
-            var data = [];
-            var employee = {
-                "Institute": "",
-                "publications_count": 0
-            }
-            var max10 = 0;
-            var keyword = "alberta"
-            
-            var urlAPI = "http://129.128.184.88/api/getBasicInstitutionInfo/start/0/count/200/";
-            retrieveInstitute(urlAPI, keyword);
-            function retrieveInstitute(urlAPI, keyword){
-              $.ajax
-                    ({
-                      type: "GET",
-                      url: urlAPI + keyword,
-                      async: false,
-                      headers: {
-                        "Authorization": "Basic " + btoa('cmput402' + ":" + 'qpskcnvb')
-                      },
-
-                      success: function (response){
-                        var publicationsData = JSON.parse(response);
-                        var itemsPerPage = publicationsData["itemsPerPage"];
-                        for (i = 0; i < itemsPerPage; i++) { 
-                            item = publicationsData["entry"][i]
-                            
-                            results = publicationsData["totalResults"]
-                            if(item != null){
-                              if(item["parent_Affil_id"] == null){
-                              var employee = {
-                                  "Institute": "",
-                                  "publications_count": 0
-                              }
-                              employee.Institute =item["Instit_name"];
-                              employee.publications_count =parseInt(item["document_count"]);
-                              data.push(employee);
-
-                              //console.log(publicationsData);
-                              //console.log(results);
-                            }
+            var searchKeyword = function(event) {
+                  event.preventDefault();
+                  var keyword = $(this).find('input[name="searchinput"]').val();
+                  console.log("Search Queried: " + keyword);
+                  var info = []
+                  if (keyword != "") {
+                      //call to retrieve institution information
+                      $.get('/publications/retrieveInstitution', {"keyword": keyword})
+                        .success(function (rawData) {
+                            if (rawData.entry) {
+                              rawData.entry.forEach(function(elem, elemIndex) {
+                                  if(elem["parent_Affil_id"] === null){
+                                    var item = {
+                                      Institute: elem["Instit_name"],
+                                      publications_count: parseInt(elem["document_count"])
+                                  }
+                                  info.push(item);
+                                  }
+                                  
+                              });
                             
                             }
-                            
-                        }
-                        var pagination = publicationsData["Pagination"];
-                        for (i = 0; i <pagination.length; i++){
-                          //console.log(pagination);
-                          //console.log("pagination length");
-                          if(pagination[i]["ref"] === "next"){
-                            //console.log("there is more to come");
-                            //retrieveInstitute(va)
-                            console.log(pagination);
-                            //retrieveInstitute(urlAPI, keyword);
-                          }
-                          
-                        }
-                        //console.log(data);
-                      }
-                    });
+                            //only display the top 10 institution
+                            var data= [];
+                            for (i =0; i < 10;i++){
+                              data.push(info[i]);
+                            }
+                            //update/create graph
+                            createGraph(data);
+                        });
+                      
+                  }
+              }
 
-                function sortJSON(data, key, way) {
-                    return data.sort(function(a, b) {
-                        var x = a[key]; var y = b[key];
-                        if (way === '123' ) { return ((x < y) ? -1 : ((x > y) ? 1 : 0)); }
-                        if (way === '321') { return ((x > y) ? -1 : ((x < y) ? 1 : 0)); }
-                    });
-                }
+              $('#searchform').submit(searchKeyword);
 
-                data = sortJSON(data,'publications_count', '321'); // 123 or 321
-            }
-            var data2= [];
-            for (i =0; i < 10;i++){
-              data2.push(data[i]);
-            }
-            console.log("data2 sdfsdf");
-            console.log(data2);
-
-
+              function createGraph(data){
                 var margin = {top: 0, right: 20, bottom: 100, left: 80},
-                    width = 960 - margin.left - margin.right,
-                    height = 500 - margin.top - margin.bottom;
+                  width = 960 - margin.left - margin.right,
+                  height = 500 - margin.top - margin.bottom;
 
                 var formatPercent = d3.format(".0%");
 
@@ -129,11 +74,11 @@
                     .tickFormat(d3.format("d"));
 
                 var tip = d3.tip()
-                  .attr('class', 'd3-tip')
-                  .offset([-10, 0])
-                  .html(function(d) {
-                    return "<strong>Publication count:</strong> <span style='color:red'>" + d.publications_count + "</span>";
-                  })
+                    .attr('class', 'd3-tip')
+                    .offset([-10, 0])
+                    .html(function(d) {
+                      return "<strong>Publication count:</strong> <span style='color:red'>" + d.publications_count + "</span>";
+                    })
 
                 var svg = d3.select("body").append("svg")
                     .attr("width", width + margin.left + margin.right)
@@ -142,37 +87,34 @@
                     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
                 svg.call(tip);
-                  console.log(data2)
-                  x.domain(data2.map(function(d) {  return d.Institute; }));
-                  y.domain([0, d3.max(data2, function(d) { return d.publications_count; })]);
+                x.domain(data.map(function(d) {  return d.Institute; }));
+                y.domain([0, d3.max(data, function(d) { return d.publications_count; })]);
 
 
-                  svg.append("g")
-                      .attr("class", "x axis")
-                      .attr("transform", "translate(0," + height + ")")
-                      .call(xAxis)
-                      .selectAll("text")  
-                          .style("text-anchor", "end")
-                          .attr("dx", "-.8em")
-                          .attr("dy", ".15em")
-                          .attr("transform", function(d) {
-                              return "rotate(-15)" 
-                              });
+                svg.append("g")
+                    .attr("class", "x axis")
+                    .attr("transform", "translate(0," + height + ")")
+                    .call(xAxis)
+                    .selectAll("text")  
+                        .style("text-anchor", "end")
+                        .attr("dx", "-.8em")
+                        .attr("dy", ".15em")
+                        .attr("transform", function(d) {
+                            return "rotate(-15)" 
+                        });
 
-
-                  svg.append("g")
-                      .attr("class", "y axis")
-                      .call(yAxis)
-                    .append("text")
-                      .attr("transform", "rotate(-90)")
-                      .attr("y", 6)
-                      .attr("dy", ".71em")
-                      .style("text-anchor", "end")
-                      .text("Publications Count");
-
+                svg.append("g")
+                    .attr("class", "y axis")
+                    .call(yAxis)
+                  .append("text")
+                    .attr("transform", "rotate(-90)")
+                    .attr("y", -75)
+                    .attr("dy", ".71em")
+                    .style("text-anchor", "end")
+                    .text("Publications Count");
 
                   svg.selectAll(".bar")
-                      .data(data2)
+                      .data(data)
                     .enter().append("rect")
                       .attr("class", "bar")
                       .attr("x", function(d) { return x(d.Institute); })
@@ -186,30 +128,16 @@
                       .attr("x", 9)
                       .attr("dy", ".35em")
                       .attr("transform", "rotate(-90)")
-
-
+                }
 
 
                 function type(d) {
                   d.publications_count = +d.publications_count;
                   return d;
                 }
-
             </script>
-
-
-
-            <!-- HTML for SEARCH BAR -->
-                <div id="tfheader">
-                    <form id="tfnewsearch" onsubmit="retrieveInstitute(this.string.value);">
-                            <input type="text" id="publication_search" class="tftextinput2" name="q" size="21" maxlength="120" placeholder="Search publications"><input type="submit" value=">" class="tfbutton2">
-                    </form>
-                    <div class="tfclear"></div>
-                </div>
-    
-            </div>
         </div>
-        <% include template/banner %>
+        
         <% include template/footer %>
     </body>
 </html>

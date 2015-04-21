@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var httpHandler = require('http-handler');
 
 router.get('/', function(req, res, next) {
 
@@ -7,4 +8,20 @@ router.get('/', function(req, res, next) {
 });
 
 
+// routing to retrieve affiliations from Centralized Database API
+router.get('/retrieveInstitution', function(req, res, next) {
+    var keyword = req.query.keyword
+    var successCb = function (articles) {
+        console.log(articles)
+        res.json(articles);
+    }
+    var errorCb = function (articles, error) {
+        console.log(error);
+        res.status(400).send('ERROR: Cannot retrieve articles');
+    }
+    httpHandler.retrieveInstitutionJSON(successCb, errorCb, {'keyword': keyword});
+    
+});
+
 module.exports = router;
+
