@@ -1,7 +1,7 @@
 body, html { margin:0; padding:0; height:100%;}
 
 .leaflet-map-pane img { max-width: none; max-height: none;}
-#map {  width:80%; height:70%; position: relative; margin-left: auto; margin-right: auto; }
+#map {  width:70%; height:60%; position: relative; margin-left: auto; margin-right: auto; }
 
 #style {
   margin-left: auto;
@@ -59,26 +59,25 @@ svg rect {
 }
 
 .spinner-wrapper {
-  min-width:80%;
-  min-height:70%;
-  width:80%; height:70%;
+  min-width:70%; min-height:60%;
+  width:70%; height:60%;
   left:0;
   right:0;
   margin-left:auto;
   margin-right:auto;
-  background:rgba(255,255,255,0.50);
+  background:rgba(255,255,255,0.40);
   position:absolute;
   z-index:300;
 }
 
-.spinner-text {position:absolute;top:41.5%;left:47%;margin:16px 0 0 35px;font-size:9px;font-family:Arial;color:#000;letter-spacing:1px;font-weight:700}
+.spinner-text {position:absolute;top:41.5%;left:47%;margin:16px 0 0 35px;font-size:24px;font-family:Roboto;color:#4a77d4;letter-spacing:1px;font-weight:700}
 .spinner {
   margin:0;
   display:block;
   position:absolute;
   left:45%;
   top:40%;
-  border:25px solid rgba(0,0,0,0.5);
+  border:25px solid #4a77d4;
   width:1px;
   height:1px;
   border-left-color:transparent;
@@ -108,3 +107,4 @@ svg rect {
   0%,100% {transform:rotate(0deg) scale(1)}
   50%     {transform:rotate(720deg) scale(0.6)}
 }
+

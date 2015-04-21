@@ -3,30 +3,19 @@ var router = express.Router();
 var request = require('request');
 var httpHandler = require('http-handler');
 
-var query = {
-    firstname: "Abram",
-    lastname: "Hindle",
-    sciverse: null,
-    twitterhandle: null,
-    mendeley: null,
-    email: null,
-    googlescholar: null
-}
-
-var keyword = "network"
-
-// var locations = {locations: [{city:"London",country:"Canada"},
-// {city:"London"},
+// var testLocations = {locations: [{city:"London",country:"Canada"},
+// {city:"London",country: "UK"},
 // {city:"Hong Kong",country: "China"},
 // {city:"Edmonton"},
+// {city:"Calgary"},
 // {street:"1090 N Charlotte St, Lancaster, PA"}
 // ]};
 
 router.get('/', function(req, res, next) {
-        res.render('heatmap', { title: '402Dashboard', banner:'Heat Map', filename: 'heatmap' } );
+    res.render('heatmap', { title: '402Dashboard', banner:'Heat Map', filename: 'heatmap' } );
 });
 
-// routing to retrieve affiliations
+// routing to retrieve affiliations from Centralized Database API
 router.get('/retrieveAffiliations', function(req, res, next) {
 
     var successCb = function (affiliations) {
@@ -41,9 +30,9 @@ router.get('/retrieveAffiliations', function(req, res, next) {
 
 });
 
-// routing to retrieve articles by keyword
+// routing to retrieve articles by keyword from Scopus API
 router.get('/retrieveArticlesKeyword', function(req, res, next) {
-
+    var keyword = req.query.keyword
     var successCb = function (articles) {
         console.log(articles)
         res.json(articles);
@@ -56,8 +45,7 @@ router.get('/retrieveArticlesKeyword', function(req, res, next) {
     
 });
 
-
-// routing to retrieve coords of locations
+// routing to retrieve coords of locations from Mapquest API
 router.get('/retrieveLocationCoords', function(req, res, next) {
     var locationsQuery = JSON.parse(req.query.locations)
     var locations = {locations: locationsQuery}

@@ -8,13 +8,19 @@
 <body>
     <% include template/navbar %>
     <% include template/banner %>
+    <div class="container-fluid" style="width:80%; position:relative; padding-bottom:20px; padding-top:20px; " >
+        <div class="row">
+        <div class="col-md-4"><p class="text-center" style="font-size: 230%">Search for Title Keyword:</p></div>
+        <div class="col-md-8"><% include template/searchbar %></div>
+        </div>
+    </div>
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
     <style>
     .leaflet-container {
         background: rgba(255,255,255,.5)
     }
     </style>
-    <div class="container-fluid">
+    <div class="container-fluid" style="padding-bottom:30px">
         <div class="row">
             <div id = 'loading'></div>
             <div id = 'map'></div>
@@ -24,19 +30,19 @@
     <% include template/footer %>
 </body>
 <script>
-    $("#loading").append("<div class='spinner-wrapper'><span class='spinner-text'>LOADING</span><span class='spinner'></span></div>");
 
     var baseLayer = L.tileLayer(
       'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
         noWrap: true,
-        maxZoom: 8
+        maxZoom: 8,
+        minZoom: 2
       }
     );
 
     var cfg = {
       // radius should be small ONLY if scaleRadius is true (or small radius is intended)
       // if scaleRadius is false it will be the constant radius used in pixels
-      "radius": 1,
+      "radius": 3,
       "maxOpacity": .8, 
       // scales the radius based on map zoom
       "scaleRadius": true, 
@@ -56,49 +62,55 @@
     var heatmapLayer = new HeatmapOverlay(cfg);
 
     var map = new L.Map('map', {
-      center: new L.LatLng(25.6586, -80.3568),
-      zoom: 4,
+      center: new L.LatLng(30, 0),
+      zoom: 3,
       layers: [baseLayer, heatmapLayer]
     });
 
-    $.get('/heatmap/retrieveArticlesKeyword')
-    .success(function (rawData) {
+    var searchKeyword = function(event) {
+        event.preventDefault();
+        var keyword = $(this).find('input[name="searchinput"]').val();
+        console.log("Search Queried: " + keyword)
 
-        var articleLocations = []
-
-        rawData.entry.forEach(function(elem, elemIndex) {
-            for (i = 0; i < elem.affiliations.length; i++) {
-                var location = {
-                    city: elem.affiliations[i]["affiliation-city"],
-                    country: elem.affiliations[i]["affiliation_country"]
+        if (keyword != "") {
+            $("#loading").append("<div class='spinner-wrapper'><span class='spinner-text'>LOADING</span><span class='spinner'></span></div>");
+            //call to retrieve articles with keyword in title
+            $.get('/heatmap/retrieveArticlesKeyword', {"keyword": keyword})
+            .success(function (rawData) {
+                var articleLocations = []
+                if (rawData.entry) {
+                    rawData.entry.forEach(function(elem, elemIndex) {
+                        for (i = 0; i < elem.affiliations.length; i++) {
+                            var location = {
+                                city: elem.affiliations[i]["affiliation-city"],
+                                country: elem.affiliations[i]["affiliation_country"]
+                            }
+                            articleLocations.push(location);
+                        }
+                    });
                 }
-                articleLocations.push(location);
-            }
-        });
-        var articleLocationsJSON = JSON.stringify(articleLocations)
-        // console.log(articleLocationsJSON)
-        $.get('/heatmap/retrieveLocationCoords', {"locations": articleLocationsJSON})
-        .success(function (rawData) {
-
-            // don't forget to include leaflet-heatmap.js
-            var heatmapData = {
-              data: []
-            };
-
-            if(rawData.results) {
-                rawData.results.forEach(function(elem, elemIndex) {
-                    if(elem.locations && elem.locations[0] && elem.locations[0]["latLng"]) {
-                        heatmapData.data.push(elem.locations[0]["latLng"])
-                    }
+                var articleLocationsJSON = JSON.stringify(articleLocations)
+                //call to retrieve coordinates of article locations
+                $.get('/heatmap/retrieveLocationCoords', {"locations": articleLocationsJSON})
+                .success(function (rawData) {
+                    var heatmapData = {
+                      data: []
+                    };
+                    if(rawData.results) {
+                        rawData.results.forEach(function(elem, elemIndex) {
+                            if(elem.locations && elem.locations[0] && elem.locations[0]["latLng"]) {
+                                heatmapData.data.push(elem.locations[0]["latLng"])
+                            }
+                        });
+                    }   
+                    heatmapLayer.setData(heatmapData);
+                    $("#loading").empty();
                 });
-            }   
+            });
+        }
+    }
 
-            console.log(heatmapData);
-            heatmapLayer.setData(heatmapData);
-            $("#loading").hide();
-        });
-    });
-
+    $('#searchform').submit(searchKeyword);
 
 </script>
 </html>

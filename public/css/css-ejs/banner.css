@@ -41,7 +41,7 @@
   background-color: rgba(0,0,0,.6);
   color: #FFF;
   font-size: 1.5em;
-  font-family: Tahoma;
+  font-family: Roboto; Serif;
 }
 @-webkit-keyframes fadeTop{
   0% {opacity: 1;}
