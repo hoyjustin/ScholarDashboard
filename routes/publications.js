@@ -4,7 +4,7 @@ var httpHandler = require('http-handler');
 
 router.get('/', function(req, res, next) {
 
-        res.render('publications', { title: '402Dashboard', banner: 'Countries Publications', filename: 'publications'});
+        res.render('publications', { title: '402Dashboard', banner: 'Publications counts by Keyword', filename: 'publications'});
 });
 
 
