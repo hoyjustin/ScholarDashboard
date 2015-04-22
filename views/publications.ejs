@@ -29,7 +29,9 @@
                                   if(elem["parent_Affil_id"] === null){
                                     var item = {
                                       Institute: elem["Instit_name"],
-                                      publications_count: parseInt(elem["document_count"])
+                                      publications_count: parseInt(elem["document_count"]),
+                                      city: elem["city"],
+                                      country: elem["country"]
                                   }
                                   info.push(item);
                                   }
@@ -52,7 +54,7 @@
               $('#searchform').submit(searchKeyword);
 
               function createGraph(data){
-                var margin = {top: 0, right: 20, bottom: 100, left: 80},
+                var margin = {top: 10, right: 20, bottom: 100, left: 150},
                   width = 960 - margin.left - margin.right,
                   height = 500 - margin.top - margin.bottom;
 
@@ -77,7 +79,17 @@
                     .attr('class', 'd3-tip')
                     .offset([-10, 0])
                     .html(function(d) {
-                      return "<strong>Publication count:</strong> <span style='color:red'>" + d.publications_count + "</span>";
+                      return "<strong>Publication count:</strong> <span style='color:red'>" 
+                              + d.publications_count 
+                              + "</span>"
+                              +"<br/>"
+                              +"<strong>city:</strong> <span style='color:red'>" 
+                              + d.city 
+                              + "</span>"
+                              +"<br/>"
+                              +"<strong>country:</strong> <span style='color:red'>" 
+                              + d.country
+                              + "</span>";
                     })
 
                 var svg = d3.select("body").append("svg")
