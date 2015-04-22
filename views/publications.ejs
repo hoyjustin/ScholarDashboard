@@ -38,6 +38,7 @@
                                       city: elem["city"],
                                       country: elem["country"]
                                   }
+                                  //console.log(item);
                                   info.push(item);
                                   } 
                               });
@@ -46,9 +47,11 @@
                             //only display the top 10 institution
                             var data= [];
                             for (i =0; i < 10;i++){
-                              data.push(info[i]);
+                              if(info[i]){
+                                data.push(info[i]);
+                              }
                             }
-
+                            console.log(data);
                             if(data[0]){
                               //update/create graph
                               createGraph(data);
@@ -59,7 +62,6 @@
                               $("#loading").empty();
                               $("#loading").append("no results");
                             }
-                            console.log(data.length);
                         });
                   }
               }
@@ -68,7 +70,7 @@
 
               function createGraph(data){
                 d3.select("svg").remove();
-                var margin = {top: 10, right: 20, bottom: 100, left: 150},
+                var margin = {top: 10, right: 20, bottom: 150, left: 250},
                   width = 960 - margin.left - margin.right,
                   height = 500 - margin.top - margin.bottom;
 
@@ -113,7 +115,7 @@
                     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
                 svg.call(tip);
-                x.domain(data.map(function(d) {  return d.Institute; }));
+                x.domain(data.map(function(d) { return d.Institute; }));
                 y.domain([0, d3.max(data, function(d) { return d.publications_count; })]);
 
 
