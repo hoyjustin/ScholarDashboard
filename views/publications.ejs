@@ -33,6 +33,7 @@
                               rawData.entry.forEach(function(elem, elemIndex) {
                                   if(elem["parent_Affil_id"] === null){
                                     var item = {
+                                      //populate the mouseover with these informations
                                       Institute: elem["Instit_name"],
                                       publications_count: parseInt(elem["document_count"]),
                                       city: elem["city"],
@@ -51,7 +52,7 @@
                                 data.push(info[i]);
                               }
                             }
-                            console.log(data);
+                            //check if there are results, else show no results message
                             if(data[0]){
                               //update/create graph
                               createGraph(data);

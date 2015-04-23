@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
 });
 
 
-// routing to retrieve affiliations from Centralized Database API
+// routing to retrieve affiliations from the sciverse database
 router.get('/retrieveInstitution', function(req, res, next) {
     var keyword = req.query.keyword
     var successCb = function (articles) {
