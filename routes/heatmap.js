@@ -5,7 +5,7 @@ var httpHandler = require('http-handler');
 
 router.get('/', function(req, res, next) {
     if (req.session.username) {
-        res.render('heatmap', { title: '402Dashboard', banner:'Publication Locations By Title', filename: 'heatmap' } );
+        res.render('heatmap', { title: '402Dashboard', banner:'Publication Locations By Title Keyword', filename: 'heatmap' } );
     } else {
         res.redirect('/');
     }
