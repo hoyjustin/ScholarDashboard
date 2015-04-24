@@ -3,31 +3,12 @@ var router = express.Router();
 var request = require('request');
 var httpHandler = require('http-handler');
 
-// var testLocations = {locations: [{city:"London",country:"Canada"},
-// {city:"London",country: "UK"},
-// {city:"Hong Kong",country: "China"},
-// {city:"Edmonton"},
-// {city:"Calgary"},
-// {street:"1090 N Charlotte St, Lancaster, PA"}
-// ]};
-
 router.get('/', function(req, res, next) {
-    res.render('heatmap', { title: '402Dashboard', banner:'Heat Map', filename: 'heatmap' } );
-});
-
-// routing to retrieve affiliations from Centralized Database API
-router.get('/retrieveAffiliations', function(req, res, next) {
-
-    var successCb = function (affiliations) {
-        console.log(affiliations)
-        res.json(affiliations);
+    if (req.session.username) {
+        res.render('heatmap', { title: '402Dashboard', banner:'Publication Locations By Title', filename: 'heatmap' } );
+    } else {
+        res.redirect('/');
     }
-    var errorCb = function (affiliations, error) {
-        console.log(error);
-        res.status(400).send('ERROR: Cannot retrieve affiiliations');
-    }
-    httpHandler.retrieveAffiliationsJSON(successCb, errorCb, {'query': query});
-
 });
 
 // routing to retrieve articles by keyword from Scopus API
@@ -37,7 +18,7 @@ router.get('/retrieveArticlesKeyword', function(req, res, next) {
         console.log(articles)
         res.json(articles);
     }
-    var errorCb = function (articles, error) {
+    var errorCb = function (articles, error, response) {
         console.log(error);
         res.status(400).send('ERROR: Cannot retrieve articles');
     }

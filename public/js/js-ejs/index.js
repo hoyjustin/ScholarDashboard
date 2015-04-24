@@ -14,6 +14,7 @@ $(document).ready(function(){
                 window.location.href = '/dashboard';
             })
             .error(function (xhr, textStatus, errorThrown) {
+                $('#error').show();
                 TemplateErrorDisplay(xhr, textStatus, errorThrown);
             });
     }

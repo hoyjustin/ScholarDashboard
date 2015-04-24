@@ -9,13 +9,24 @@
 
     <body>
 
-        <div class="container">
-            <div class="col-md-8"><% include template/searchbar %></div>
-            <div id="loading"></div>
+        <div class="container-fluid" style="width:80%; position:relative; padding-bottom:20px; padding-top:20px; " >
+            <div class="row">
+                <div class="col-md-4"><p class="text-center" style="font-size: 200%">Location:</p></div>
+                <div class="col-md-8"><% include template/searchbar %></div>
+            </div>
 
-            <script src="http://d3js.org/d3.v3.min.js"></script>
-            <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
-            <script>
+        </div>
+            <div class="container-fluid" style="width:80%; position:relative; padding-bottom:20px; padding-top:100px; " >
+            <div class="row">
+                <div id="loading"></div>
+                <div id ="graph"></div>
+            </div>
+            </div>
+        </div>
+
+        <script src="http://d3js.org/d3.v3.min.js"></script>
+        <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+        <script>
 
             var searchKeyword = function(event) {
                   event.preventDefault();
@@ -25,7 +36,8 @@
                   
                   if (keyword != "") {
                     $("#loading").empty();
-                    $("#loading").append("<div class='refreshing'>loading...</div>");
+                    $("#graph").empty();
+                    $("#loading").append("<div class='spinner-wrapper'><span class='spinner-text'>LOADING</span><span class='spinner'></span></div>");
                       //call to retrieve institution information
                       $.get('/publications/retrieveInstitution', {"keyword": keyword})
                         .success(function (rawData) {
@@ -61,7 +73,7 @@
                             }
                             else{
                               $("#loading").empty();
-                              $("#loading").append("no results");
+                              $("#loading").append("<p class='text-center' style='font-size: 200%'>No Results</p>");
                             }
                         });
                   }
@@ -109,7 +121,7 @@
                               + "</span>";
                     })
 
-                var svg = d3.select("body").append("svg")
+                var svg = d3.select("#graph").append("svg")
                     .attr("width", width + margin.left + margin.right)
                     .attr("height", height + margin.top + margin.bottom)
                   .append("g")
@@ -148,7 +160,7 @@
                     .attr("x", 700)
                     .attr("dy", ".71em")
                     .style("text-anchor", "end")
-                    .text("top 10 results")
+                    .text("Top 10 results")
                   
 
                 svg.selectAll(".bar")
@@ -174,8 +186,8 @@
                   d.publications_count = +d.publications_count;
                   return d;
                 }
-            </script>
-        </div>
+
+        </script>
         <% include template/footer %>
     </body>
 </html>

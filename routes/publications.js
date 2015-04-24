@@ -3,8 +3,12 @@ var router = express.Router();
 var httpHandler = require('http-handler');
 
 router.get('/', function(req, res, next) {
-
-        res.render('publications', { title: '402Dashboard', banner: 'Publications counts by Keyword', filename: 'publications'});
+	if (req.session.username) {
+        res.render('publications', { title: '402Dashboard', banner: 'Publication Counts By Location', filename: 'publications'});
+    }
+    else {
+		res.redirect('/');
+    }
 });
 
 
@@ -15,7 +19,7 @@ router.get('/retrieveInstitution', function(req, res, next) {
         console.log(articles)
         res.json(articles);
     }
-    var errorCb = function (articles, error) {
+    var errorCb = function (articles, error, response) {
         console.log(error);
         res.status(400).send('ERROR: Cannot retrieve articles');
     }

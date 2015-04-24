@@ -42,9 +42,9 @@ input[type="search"]::-webkit-search-decoration {
 /* ---------- SEARCH ---------- */
 
 #search {
-  width: 50%;
+  width: 100%;
   margin-left: auto;
-  background: rgba(0,0,0,.4);
+  background: rgba(0,0,0,0);
   border-radius: 3px;
   padding: 0px;
 }
@@ -66,7 +66,7 @@ input[type="search"]::-webkit-search-decoration {
   height: 40px;
 }
 
-.btn {width: 20%;  height: 40px;}
+.btn {width: 10%;  height: 40px;}
 
 #search input[type="submit"] {
   background: #4a77d4;
