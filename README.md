@@ -1,6 +1,6 @@
-Data Visulaization Webapp
+Data Visualization Dashboard
 ===============
-This web app is utilized to visualize academic journals and social media data.
+This web app is a utilized to visualize academic journals and social media data.
 
 Required Modules
 -----------------------
@@ -9,4 +9,4 @@ Required Modules
 
 Running the application
 -----------------------
-To run the application, go to the Webapp root directory and run: `node app.js`
+To run the application, go to the Webapp root directory and run: `node app.js` or 'nodejs app.js'
