@@ -1,6 +1,6 @@
 Data Visualization Dashboard
 ===============
-This web app is a utilized to visualize academic journals and social media data.
+This web app is utilized to visualize academic journals and social media data.
 
 Required Modules
 -----------------------
